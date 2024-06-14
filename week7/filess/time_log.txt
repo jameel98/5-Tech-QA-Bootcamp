@@ -1,0 +1,2 @@
+09-06-24 09:42:05 - Checked the file handling exercise.
+09-06-24 09:54:51 - Added movie 'pop' with default rating 5.
