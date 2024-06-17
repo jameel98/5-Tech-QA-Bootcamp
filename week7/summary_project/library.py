@@ -14,11 +14,21 @@ class Library:
                 books_data = json.load(file)
                 return [Book.from_dict(book) for book in books_data]
         except FileNotFoundError:
+            print(f"File '{self.BOOKS_FILE}' not found. Starting with an empty library.")
+            return []
+        except json.JSONDecodeError:
+            print(f"Error decoding JSON from file '{self.BOOKS_FILE}'. Starting with an empty library.")
+            return []
+        except Exception as e:
+            print(f"An error occurred while loading books: {e}")
             return []
 
     def save_books(self):
-        with open(self.BOOKS_FILE, 'w') as file:
-            json.dump([book.to_dict() for book in self.books], file, indent=4)
+        try:
+            with open(self.BOOKS_FILE, 'w') as file:
+                json.dump([book.to_dict() for book in self.books], file, indent=4)
+        except Exception as e:
+            print(f"An error occurred while saving books: {e}")
 
     def add_book(self, book):
         self.books.append(book)
