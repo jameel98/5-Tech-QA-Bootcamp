@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>List of Books</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Publication Year</th>
+            <th>Genre</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.publication_year }}</td>
+            <td>{{ book.genre }}</td>
+            <td>
+                {% if book.is_sold %} Sold {% else %} Available {% endif %},
+                {% if book.is_rented %} Rented {% else %} Not Rented {% endif %}
+            </td>
+            <td>
+                {% if not book.is_sold %}
+                <form action="/buy_book/{{ book.title }}" method="post" style="display:inline;">
+                    <button type="submit">Buy</button>
+                </form>
+                {% endif %}
+                {% if book.is_sold %}
+                <form action="/sell_book/{{ book.title }}" method="post" style="display:inline;">
+                    <button type="submit">Sell</button>
+                </form>
+                {% endif %}
+                {% if not book.is_rented %}
+                <form action="/rent_book/{{ book.title }}" method="post" style="display:inline;">
+                    <button type="submit">Rent</button>
+                </form>
+                {% else %}
+                <form action="/return_book/{{ book.title }}" method="post" style="display:inline;">
+                    <button type="submit">Return</button>
+                </form>
+                {% endif %}
+                <form action="/edit_book/{{ book.title }}" method="get" style="display:inline;">
+                    <button type="submit">Edit</button>
+                </form>
+                <form action="/delete_book/{{ book.title }}" method="post" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

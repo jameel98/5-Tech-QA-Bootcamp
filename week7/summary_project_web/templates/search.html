@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>Search Books</h2>
+<form action="/search" method="post">
+    <label for="search_type">Search Type:</label>
+    <select id="search_type" name="search_type">
+        <option value="partial_title">Partial Title</option>
+        <option value="year_range">Year Range (e.g., 2000-2020)</option>
+    </select><br>
+    <label for="query">Query:</label>
+    <input type="text" id="query" name="query" required><br>
+    <button type="submit">Search</button>
+</form>
+{% endblock %}

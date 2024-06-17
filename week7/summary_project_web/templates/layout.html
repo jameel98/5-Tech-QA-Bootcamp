@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Library App</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/add_book">Add Book</a>
+            <a href="/list_books">List Books</a>
+            <a href="/search">Search Books</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
