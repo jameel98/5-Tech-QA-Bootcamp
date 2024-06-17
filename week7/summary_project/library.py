@@ -1,5 +1,4 @@
 import json
-
 from week7.summary_project.book import Book
 
 
@@ -31,6 +30,12 @@ class Library:
         else:
             for book in self.books:
                 print(book)
+
+    def find_book_by_title(self, title):
+        for book in self.books:
+            if book.title == title:
+                return book
+        return None
 
     def find_books_by_author(self, author):
         found_books = [book for book in self.books if book.author == author]
@@ -66,3 +71,35 @@ class Library:
                 return True
         print(f"Book with title '{title}' not found.")
         return False
+
+    def find_books_by_partial_title(self, partial_title):
+        found_books = [book for book in self.books if partial_title.lower() in book.title.lower()]
+        if not found_books:
+            print(f"No books found with title containing: {partial_title}")
+        else:
+            for book in found_books:
+                print(book)
+
+    def find_books_by_year_range(self, start_year, end_year):
+        found_books = [book for book in self.books if start_year <= book.publication_year <= end_year]
+        if not found_books:
+            print(f"No books found between years {start_year} and {end_year}")
+        else:
+            for book in found_books:
+                print(book)
+
+    def edit_book_detail(self, title, detail, new_value):
+        book = self.find_book_by_title(title)
+        if book:
+            if detail == 'title':
+                book.title = new_value
+            elif detail == 'author':
+                book.author = new_value
+            elif detail == 'year':
+                book.publication_year = new_value
+            elif detail == 'genre':
+                book.genre = new_value
+            self.save_books()
+            print(f"Book '{title}' {detail} updated to '{new_value}'.")
+        else:
+            print(f"Book with title '{title}' not found.")

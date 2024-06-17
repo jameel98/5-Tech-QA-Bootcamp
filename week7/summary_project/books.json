@@ -1,1 +1,8 @@
-[]
+[
+    {
+        "title": "adam",
+        "author": "me",
+        "publication_year": 1998,
+        "genre": "popo"
+    }
+]

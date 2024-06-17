@@ -1,14 +1,15 @@
 from week7.summary_project.book import Book
 from week7.summary_project.library import Library
-
+from week7.summary_project.utils import Utils
 
 class LibraryApp:
     def __init__(self):
         self.library = Library()
 
     def run(self):
+        app_run = True
         self.load_library()
-        while True:
+        while app_run:
             print("\n===== Library Menu =====")
             print("1. Add Book")
             print("2. List All Books")
@@ -16,8 +17,12 @@ class LibraryApp:
             print("4. List Books by Genre")
             print("5. Edit Book")
             print("6. Delete Book")
-            print("7. Save Library")
-            print("8. Exit")
+            print("7. Search Books by Partial Title")
+            print("8. Search Books by Year Range")
+            print("9. Import Books from CSV")
+            print("10. Export Books to CSV")
+            print("11. Save Library")
+            print("12. Exit")
             choice = input("Enter your choice: ")
 
             if choice == '1':
@@ -33,10 +38,14 @@ class LibraryApp:
             elif choice == '6':
                 self.delete_book()
             elif choice == '7':
-                self.save_library()
+                self.search_books_by_partial_title()
             elif choice == '8':
+                self.search_books_by_year_range()
+            elif choice == '9':
+                self.save_library()
+            elif choice == '10':
                 print("Exiting the Library App. Goodbye!")
-                break
+                app_run = False
             else:
                 print("Invalid choice. Please try again.")
 
@@ -52,10 +61,12 @@ class LibraryApp:
 
     def add_book(self):
         print("\n=== Add New Book ===")
-        title = input("Enter title: ")
-        author = input("Enter author: ")
-        publication_year = int(input("Enter publication year: "))
-        genre = input("Enter genre: ")
+
+        title = self.get_new_title()
+        author = self.get_valid_author()
+        publication_year = self.get_valid_year()
+        genre = self.get_valid_genre()
+
         new_book = Book(title, author, publication_year, genre)
         self.library.add_book(new_book)
         print("Book added successfully.")
@@ -75,11 +86,18 @@ class LibraryApp:
         self.library.find_books_by_genre(genre)
 
     def edit_book(self):
-        title = input("Enter title of the book to edit: ")
-        new_title = input("Enter new title: ")
-        author = input("Enter author: ")
-        publication_year = int(input("Enter publication year: "))
-        genre = input("Enter genre: ")
+        print("\n=== Edit Book ===")
+
+        title = self.get_exist_title()
+        if not self.library.find_book_by_title(title):
+            print(f"Book '{title}' does not exist.")
+            return
+
+        new_title = self.get_new_title()
+        author = self.get_valid_author()
+        publication_year = self.get_valid_year()
+        genre = self.get_valid_genre()
+
         new_book = Book(new_title, author, publication_year, genre)
         if self.library.edit_book(title, new_book):
             print(f"Book '{title}' edited successfully.")
@@ -87,7 +105,62 @@ class LibraryApp:
             print(f"Failed to edit book '{title}'.")
 
     def delete_book(self):
-        title = input("Enter title of the book to delete: ")
+        title = self.get_exist_title()
         if self.library.delete_book(title):
             print(f"Book '{title}' deleted successfully.")
+        else:
+            print(f"Failed to delete book '{title}'.")
 
+    def get_exist_title(self):
+        while True:
+            title = input("Enter title: ")
+            if self.library.find_book_by_title(title):
+                return title
+            print(f"Book '{title}' does not exist. Please enter a valid book title.")
+
+    def get_new_title(self):
+        while True:
+            title = input("Enter title: ")
+            if not Utils.validate_book_name(title):
+                print("Invalid title. Please enter a valid title (letters, numbers, spaces, and hyphens allowed).")
+                continue
+            if self.library.find_book_by_title(title):
+                print("Book already exists.")
+            else:
+                return title
+
+    @staticmethod
+    def get_valid_year():
+        while True:
+            try:
+                publication_year = int(input("Enter publication year: "))
+                if Utils.validate_year(str(publication_year)):
+                    return publication_year
+                print("Invalid publication year. Please enter a valid four-digit year.")
+            except ValueError:
+                print("Invalid input. Please enter a numeric year.")
+
+    @staticmethod
+    def get_valid_author():
+        while True:
+            author = input("Enter author: ")
+            if Utils.validate_name(author):
+                return author
+            print("Invalid author name. Please enter a valid name (letters, spaces, and hyphens allowed).")
+
+    @staticmethod
+    def get_valid_genre():
+        while True:
+            genre = input("Enter genre: ")
+            if Utils.validate_name(genre):
+                return genre
+            print("Invalid genre. Please enter a valid genre (letters, spaces, and hyphens allowed).")
+
+    def search_books_by_partial_title(self):
+        partial_title = input("Enter partial title: ")
+        self.library.find_books_by_partial_title(partial_title)
+
+    def search_books_by_year_range(self):
+        start_year = int(input("Enter start year: "))
+        end_year = int(input("Enter end year: "))
+        self.library.find_books_by_year_range(start_year, end_year)
