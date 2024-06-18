@@ -81,20 +81,10 @@ class Library:
         return False
 
     def find_books_by_partial_title(self, partial_title):
-        found_books = [book for book in self.books if partial_title.lower() in book.title.lower()]
-        if not found_books:
-            print(f"No books found with title containing: {partial_title}")
-        else:
-            for book in found_books:
-                print(book)
+        return [book for book in self.books if partial_title.lower() in book.title.lower()]
 
     def find_books_by_year_range(self, start_year, end_year):
-        found_books = [book for book in self.books if start_year <= book.publication_year <= end_year]
-        if not found_books:
-            print(f"No books found between years {start_year} and {end_year}")
-        else:
-            for book in found_books:
-                print(book)
+        return [book for book in self.books if start_year <= book.publication_year <= end_year]
 
     def edit_book_detail(self, title, detail, new_value):
         book = self.find_book_by_title(title)
@@ -112,34 +102,3 @@ class Library:
         else:
             print(f"Book with title '{title}' not found.")
 
-    def buy_book(self, title):
-        book = self.find_book_by_title(title)
-        if book and not book.is_sold:
-            book.is_sold = True
-            self.save_books()
-            return True
-        return False
-
-    def sell_book(self, title):
-        book = self.find_book_by_title(title)
-        if book and book.is_sold:
-            book.is_sold = False
-            self.save_books()
-            return True
-        return False
-
-    def rent_book(self, title):
-        book = self.find_book_by_title(title)
-        if book and not book.is_rented:
-            book.is_rented = True
-            self.save_books()
-            return True
-        return False
-
-    def return_book(self, title):
-        book = self.find_book_by_title(title)
-        if book and book.is_rented:
-            book.is_rented = False
-            self.save_books()
-            return True
-        return False

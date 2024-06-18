@@ -49,5 +49,26 @@ def delete_book(title):
     return redirect(url_for('list_books'))
 
 
+@app.route('/search', methods=['GET', 'POST'])
+def search_books():
+    if request.method == 'POST':
+        search_type = request.form['search_type']
+        query = request.form['query']
+        results = []
+
+        if search_type == 'partial_title':
+            results = library.find_books_by_partial_title(query)
+        elif search_type == 'year_range':
+            try:
+                start_year, end_year = map(int, query.split('-'))
+                results = library.find_books_by_year_range(start_year, end_year)
+            except ValueError:
+                results = []
+
+        return render_template('search_results.html', results=results, query=query, search_type=search_type)
+
+    return render_template('search.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
