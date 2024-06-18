@@ -2,21 +2,79 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library App</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .nav {
+            margin-bottom: 20px;
+        }
+        .nav a {
+            margin-right: 10px;
+            text-decoration: none;
+            color: #007bff;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <header>
+    <div class="header">
         <h1>Library App</h1>
-        <nav>
+    </div>
+    <div class="container">
+        <div class="nav">
             <a href="/">Home</a>
-            <a href="/add_book">Add Book</a>
-            <a href="/list_books">List Books</a>
-            <a href="/search">Search Books</a>
-        </nav>
-    </header>
-    <main>
+            <a href="/books">Books</a>
+            <a href="/add">Add Book</a>
+        </div>
         {% block content %}{% endblock %}
-    </main>
+    </div>
 </body>
 </html>

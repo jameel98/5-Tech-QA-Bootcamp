@@ -2,6 +2,7 @@ from week7.summary_project.book import Book
 from week7.summary_project.library import Library
 from week7.summary_project.utils import Utils
 
+
 class LibraryApp:
     def __init__(self):
         self.library = Library()
@@ -19,10 +20,8 @@ class LibraryApp:
             print("6. Delete Book")
             print("7. Search Books by Partial Title")
             print("8. Search Books by Year Range")
-            print("9. Import Books from CSV")
-            print("10. Export Books to CSV")
-            print("11. Save Library")
-            print("12. Exit")
+            print("9. Save Library")
+            print("10. Exit")
             choice = input("Enter your choice: ")
 
             if choice == '1':
@@ -73,17 +72,20 @@ class LibraryApp:
 
     def list_all_books(self):
         print("\n=== All Books in the Library ===")
-        self.library.list_books()
+        books = sorted(self.library.books)
+        self.display_books(books)
 
     def list_books_by_author(self):
         author = input("Enter author name: ")
         print(f"\n=== Books by Author: {author} ===")
-        self.library.find_books_by_author(author)
+        books = sorted(self.library.find_books_by_author(author))
+        self.display_books(books)
 
     def list_books_by_genre(self):
         genre = input("Enter genre: ")
         print(f"\n=== Books in Genre: {genre} ===")
-        self.library.find_books_by_genre(genre)
+        books = sorted(self.library.find_books_by_genre(genre))
+        self.display_books(books)
 
     def edit_book(self):
         print("\n=== Edit Book ===")
@@ -158,9 +160,18 @@ class LibraryApp:
 
     def search_books_by_partial_title(self):
         partial_title = input("Enter partial title: ")
-        self.library.find_books_by_partial_title(partial_title)
+        books = sorted(self.library.find_books_by_partial_title(partial_title))
+        self.display_books(books)
 
     def search_books_by_year_range(self):
         start_year = int(input("Enter start year: "))
         end_year = int(input("Enter end year: "))
-        self.library.find_books_by_year_range(start_year, end_year)
+        books = sorted(self.library.find_books_by_year_range(start_year, end_year))
+        self.display_books(books)
+
+    def display_books(self, books):
+        if not books:
+            print("No books found.")
+        else:
+            for book in books:
+                print(book)
