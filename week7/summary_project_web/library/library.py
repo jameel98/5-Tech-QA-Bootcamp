@@ -9,6 +9,10 @@ class Library:
         self.books = self.load_books()
 
     def load_books(self):
+        """
+        load books from file
+        :return:
+        """
         try:
             with open(self.BOOKS_FILE, 'r') as file:
                 books_data = json.load(file)

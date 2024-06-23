@@ -1,7 +1,4 @@
 import re
-"""
-class for helpful functions
-"""
 
 
 class Utils:

@@ -19,6 +19,11 @@ def list_books():
 
 
 def handle_add_book(request):
+    """
+    sends add request to the api
+    :param request:
+    :return:
+    """
     title = request.form['title']
     author = request.form['author']
     publication_year = request.form['publication_year']

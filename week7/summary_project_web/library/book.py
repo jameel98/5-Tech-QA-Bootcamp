@@ -67,7 +67,6 @@ class Book:
     def __str__(self):
         return f"Title: {self.title}, Author: {self.author}, Year: {self.publication_year}, Genre: {self.genre}"
 
-    # check if its same book
     def __eq__(self, other):
         if isinstance(other, Book):
             return (self.title == other.title and
