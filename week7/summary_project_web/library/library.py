@@ -1,9 +1,9 @@
 import json
-from week7.summary_project.book import Book
+from week7.summary_project_cli.book import Book
 
 
 class Library:
-    BOOKS_FILE = r'C:\Users\Admin\PycharmProjects\AI\automation project\week7\summary_project\books.json'
+    BOOKS_FILE = r'/week7/summary_project_cli\books.json'
 
     def __init__(self):
         self.books = self.load_books()

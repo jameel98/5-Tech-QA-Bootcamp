@@ -49,6 +49,7 @@ class Book:
             'genre': self._genre
         }
 
+    # function to read data from dict
     @classmethod
     def from_dict(cls, data):
         return cls(
@@ -58,12 +59,15 @@ class Book:
             data['genre']
         )
 
+    # created to sort the data then realized its not needed
     def __lt__(self, other):
         return self._title < other.title
 
+    # print data
     def __str__(self):
         return f"Title: {self.title}, Author: {self.author}, Year: {self.publication_year}, Genre: {self.genre}"
 
+    # check if its same book
     def __eq__(self, other):
         if isinstance(other, Book):
             return (self.title == other.title and

@@ -1,5 +1,5 @@
 import json
-from week7.summary_project.book import Book
+from week7.summary_project_cli.book import Book
 
 
 class Library:

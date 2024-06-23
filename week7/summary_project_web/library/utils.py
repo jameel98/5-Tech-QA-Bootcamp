@@ -1,4 +1,7 @@
 import re
+"""
+class for helpful functions
+"""
 
 
 class Utils:
@@ -19,3 +22,4 @@ class Utils:
         # Regex to check if the name contains alphabet letters, numbers, spaces, and hyphens
         pattern = r'^[A-Za-z0-9\s-]+$'
         return bool(re.match(pattern, name))
+
