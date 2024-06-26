@@ -24,4 +24,6 @@ def mul_function(num_a, num_b):
 
 
 def div_function(num_a, num_b):
+    if num_b == 0:
+        raise ValueError("Cannot divide by zero")
     return num_a / num_b
