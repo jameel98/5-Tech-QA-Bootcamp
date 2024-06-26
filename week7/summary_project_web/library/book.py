@@ -1,3 +1,6 @@
+from week7.summary_project_web.library.utils import Utils
+
+
 class Book:
     def __init__(self, title, author, publication_year, genre):
         self._title = title
@@ -58,10 +61,6 @@ class Book:
             data['publication_year'],
             data['genre']
         )
-
-    # created to sort the data then realized its not needed
-    def __lt__(self, other):
-        return self._title < other.title
 
     # print data
     def __str__(self):

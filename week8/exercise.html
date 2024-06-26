@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jameel Mograbi</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        #main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #e8f5e9;
+        }
+        #about-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+        h1 {
+            font-size: 2em;
+            color: #2c3e50;
+            border-bottom: 2px solid #1abc9c;
+            padding-bottom: 10px;
+        }
+        p {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #e7e7e7;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 4px;
+            color: #2c3e50;
+        }
+        li a {
+            color: #1abc9c;
+            text-decoration: none;
+        }
+        li a:hover {
+            text-decoration: underline;
+        }
+        #footer {
+            text-align: center;
+            padding: 20px;
+            background: #2c3e50;
+            color: #fff;
+        }
+        #footer p {
+            margin: 10px 0;
+            color: #1abc9c;
+        }
+        #footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+        #footer li {
+            margin: 10px 0;
+        }
+        #footer li a {
+            color: #1abc9c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        #footer li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Media queries */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            #main {
+                padding: 10px;
+            }
+            #about-section {
+                padding: 10px;
+                max-width: 90%;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            p, li {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (min-width: 601px) and (max-width: 1024px) {
+            #main {
+                padding: 15px;
+            }
+            #about-section {
+                padding: 15px;
+                max-width: 80%;
+            }
+            h1 {
+                font-size: 1.75em;
+            }
+            p, li {
+                font-size: 1em;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            #main {
+                padding: 20px;
+            }
+            #about-section {
+                padding: 20px;
+                max-width: 600px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            p, li {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <section id="about-section">
+        <h1>About Me</h1>
+        <p>C.S graduate with hands-on QA automation bootcamp experience.</p>
+
+        <p>Languages I Learned</p>
+        <ul>
+            <li>Java</li>
+            <li>C</li>
+            <li>Cpp</li>
+            <li>Python</li>
+            <li>JavaScript</li>
+            <li>HTML</li>
+            <li>CSS</li>
+        </ul>
+        <p>Automation Projects</p>
+        <ul>
+            <li>Playwright <a href="https://github.com/mostfamosa/TerminalX-Playwright-Final-Project" target="_blank">Project Link</a></li>
+            <li>Selenium <a href="https://github.com/waelse7/QA-midterm" target="_blank">Project Link</a></li>
+            <li>Appium <a href="https://github.com/jameel98/Appium" target="_blank">Project Link</a></li>
+        </ul>
+    </section>
+</div>
+<footer id="footer">
+    <p>Helping craft your ideas into reality</p>
+    <p>Contact Info</p>
+    <ul>
+        <li>Email: <a href="mailto:jameelmograbi@gmail.com">jameelmograbi@gmail.com</a></li>
+        <li>Phone: <a href="tel:+0502694219">050-269-4219</a></li>
+        <li>GitHub: <a href="https://github.com/jameel98" target="_blank">github.com/jameel98</a></li>
+    </ul>
+</footer>
+</body>
+</html>

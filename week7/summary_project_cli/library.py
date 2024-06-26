@@ -6,7 +6,7 @@ class Library:
     BOOKS_FILE = 'books.json'
 
     def __init__(self):
-        self.books = self.load_books()
+        self.books = sorted(self.load_books())
 
     def load_books(self):
         try:
