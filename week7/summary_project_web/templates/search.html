@@ -2,14 +2,49 @@
 
 {% block content %}
 <h2>Search Books</h2>
-<form action="/search" method="post">
+<form action="/search" method="post" class="search-form">
     <label for="search_type">Search Type:</label>
-    <select id="search_type" name="search_type">
+    <select id="search_type" name="search_type" class="form-control">
         <option value="partial_title">Partial Title</option>
         <option value="year_range">Year Range (e.g., 2000-2020)</option>
     </select><br>
     <label for="query">Query:</label>
-    <input type="text" id="query" name="query" required><br>
-    <button type="submit">Search</button>
+    <input type="text" id="query" name="query" class="form-control" required><br>
+    <button type="submit" class="btn btn-primary">Search</button>
 </form>
+
+<style>
+    .search-form {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .search-form label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    .search-form .form-control {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+    }
+    .search-form .btn {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+    .search-form .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
 {% endblock %}

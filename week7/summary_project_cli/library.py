@@ -1,12 +1,12 @@
 import json
-from week7.summary_project.book import Book
+from week7.summary_project_cli.book import Book
 
 
 class Library:
     BOOKS_FILE = 'books.json'
 
     def __init__(self):
-        self.books = self.load_books()
+        self.books = sorted(self.load_books())
 
     def load_books(self):
         try:

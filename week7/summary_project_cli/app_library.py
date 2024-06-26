@@ -1,6 +1,6 @@
-from week7.summary_project.book import Book
-from week7.summary_project.library import Library
-from week7.summary_project.utils import Utils
+from week7.summary_project_cli.book import Book
+from week7.summary_project_cli.library import Library
+from week7.summary_project_cli.utils import Utils
 
 
 class LibraryApp:

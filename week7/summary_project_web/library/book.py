@@ -1,3 +1,6 @@
+from week7.summary_project_web.library.utils import Utils
+
+
 class Book:
     def __init__(self, title, author, publication_year, genre):
         self._title = title
@@ -49,6 +52,7 @@ class Book:
             'genre': self._genre
         }
 
+    # function to read data from dict
     @classmethod
     def from_dict(cls, data):
         return cls(
@@ -58,9 +62,7 @@ class Book:
             data['genre']
         )
 
-    def __lt__(self, other):
-        return self._title < other.title
-
+    # print data
     def __str__(self):
         return f"Title: {self.title}, Author: {self.author}, Year: {self.publication_year}, Genre: {self.genre}"
 

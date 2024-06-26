@@ -1,9 +1,11 @@
 import json
-from week7.summary_project.book import Book
+
+from week7.summary_project_web.library.book import Book
+from week7.summary_project_web.library.utils import Utils
 
 
 class Library:
-    BOOKS_FILE = r'C:\Users\Admin\PycharmProjects\AI\automation project\week7\summary_project\books.json'
+    BOOKS_FILE = r'C:\Users\Admin\PycharmProjects\AI\automation project\week7\summary_project_web\books.json'
 
     def __init__(self):
         self.books = self.load_books()
@@ -12,12 +14,17 @@ class Library:
         try:
             with open(self.BOOKS_FILE, 'r') as file:
                 books_data = json.load(file)
+                if not isinstance(books_data, list):
+                    raise ValueError(f"Expected a list of books, but got: {type(books_data)}")
                 return [Book.from_dict(book) for book in books_data]
         except FileNotFoundError:
             print(f"File '{self.BOOKS_FILE}' not found. Starting with an empty library.")
             return []
-        except json.JSONDecodeError:
-            print(f"Error decoding JSON from file '{self.BOOKS_FILE}'. Starting with an empty library.")
+        except json.JSONDecodeError as json_error:
+            print(f"Error decoding JSON from file '{self.BOOKS_FILE}': {json_error}")
+            return []
+        except ValueError as value_error:
+            print(f"Value error loading books from '{self.BOOKS_FILE}': {value_error}")
             return []
         except Exception as e:
             print(f"An error occurred while loading books: {e}")
@@ -36,41 +43,49 @@ class Library:
 
     def list_books(self):
         if not self.books:
-            print("No books in the library.")
+            return []
         else:
-            for book in self.books:
-                print(book)
+            return self.books
+
+    def search_books(self, search_type, search_value):
+        search_funcs = {
+            'title': lambda book: book.title == search_value,
+            'partial_title': lambda book: search_value.lower() in book.title.lower(),
+            'author': lambda book: book.author == search_value,
+            'genre': lambda book: book.genre == search_value,
+            'year_range': lambda book: search_value[0] <= book.publication_year <= search_value[1]
+        }
+
+        if search_type not in search_funcs:
+            raise ValueError(f"Unknown search type: {search_type}")
+
+        return list(filter(search_funcs[search_type], self.books))
 
     def find_book_by_title(self, title):
-        for book in self.books:
-            if book.title == title:
-                return book
-        return None
+        books = self.search_books('title', title)
+        return books[0] if books else None
 
     def find_books_by_author(self, author):
-        found_books = [book for book in self.books if book.author == author]
-        if not found_books:
-            print(f"No books found by author: {author}")
-        else:
-            for book in found_books:
-                print(book)
+        return self.search_books('author', author)
 
     def find_books_by_genre(self, genre):
-        found_books = [book for book in self.books if book.genre == genre]
-        if not found_books:
-            print(f"No books found in genre: {genre}")
-        else:
-            for book in found_books:
-                print(book)
+        return self.search_books('genre', genre)
+
+    def find_books_by_partial_title(self, partial_title):
+        return self.search_books('partial_title', partial_title)
+
+    def find_books_by_year_range(self, start_year, end_year):
+        return self.search_books('year_range', (start_year, end_year))
 
     def edit_book(self, old_title, new_book):
-        for i, book in enumerate(self.books):
-            if book.title == old_title:
-                self.books[i] = new_book
-                self.save_books()
-                return True
-        print(f"Book with title '{old_title}' not found.")
-        return False
+        index = next((i for i, book in enumerate(self.books) if book.title == old_title), None)
+        if index is not None:
+            self.books[index] = new_book
+            self.save_books()
+            return True
+        else:
+            print(f"Book with title '{old_title}' not found.")
+            return False
 
     def delete_book(self, title):
         book = self.find_book_by_title(title)
@@ -78,13 +93,9 @@ class Library:
             self.books.remove(book)
             self.save_books()
             return True
-        return False
-
-    def find_books_by_partial_title(self, partial_title):
-        return [book for book in self.books if partial_title.lower() in book.title.lower()]
-
-    def find_books_by_year_range(self, start_year, end_year):
-        return [book for book in self.books if start_year <= book.publication_year <= end_year]
+        else:
+            print(f"Book with title '{title}' not found.")
+            return False
 
     def edit_book_detail(self, title, detail, new_value):
         book = self.find_book_by_title(title)
@@ -102,3 +113,57 @@ class Library:
         else:
             print(f"Book with title '{title}' not found.")
 
+    def handle_add_book(self, form_data):
+        title = form_data['title']
+        author = form_data['author']
+        publication_year = form_data['publication_year']
+        genre = form_data['genre']
+
+        if not Utils.validate_book_name(title):
+            return "Invalid title. Please enter a valid title (letters, numbers, spaces, and hyphens allowed)."
+        if not Utils.validate_name(author):
+            return "Invalid author name. Please enter a valid name (letters, spaces, and hyphens allowed)."
+        if not Utils.validate_year(publication_year):
+            return "Invalid publication year. Please enter a valid four-digit year."
+        if not Utils.validate_name(genre):
+            return "Invalid genre. Please enter a valid genre (letters, spaces, and hyphens allowed)."
+
+        new_book = Book(title, author, int(publication_year), genre)
+        self.add_book(new_book)
+
+    def handle_edit_book(self, form_data, book):
+        new_title = form_data['title']
+        author = form_data['author']
+        publication_year = form_data['publication_year']
+        genre = form_data['genre']
+
+        if not Utils.validate_book_name(new_title):
+            return "Invalid title. Please enter a valid title (letters, numbers, spaces, and hyphens allowed)."
+        if not Utils.validate_name(author):
+            return "Invalid author name. Please enter a valid name (letters, spaces, and hyphens allowed)."
+        if not Utils.validate_year(publication_year):
+            return "Invalid publication year. Please enter a valid four-digit year."
+        if not Utils.validate_name(genre):
+            return "Invalid genre. Please enter a valid genre (letters, spaces, and hyphens allowed)."
+
+        book.title = new_title
+        book.author = author
+        book.publication_year = int(publication_year)
+        book.genre = genre
+        self.save_books()
+
+    def handle_search_books(self, form_data):
+        search_type = form_data['search_type']
+        query = form_data['query']
+        results = []
+
+        if search_type == 'partial_title':
+            results = self.find_books_by_partial_title(query)
+        elif search_type == 'year_range':
+            try:
+                start_year, end_year = map(int, query.split('-'))
+                results = self.find_books_by_year_range(start_year, end_year)
+            except ValueError:
+                results = []
+
+        return results, query, search_type
