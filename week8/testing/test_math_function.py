@@ -1,6 +1,6 @@
 import unittest
 
-from week8.testing.math_function import is_even, is_odd, sum_function, sub_function
+from week8.testing.math_function import is_even, is_odd, sum_function, sub_function, div_function, mul_function
 
 
 class TestMathFunction(unittest.TestCase):
@@ -31,14 +31,14 @@ class TestMathFunction(unittest.TestCase):
         num_b = 4
         result = 12
 
-        self.assertEqual(sub_function(num_a, num_b), result)
+        self.assertEqual(mul_function(num_a, num_b), result)
 
     def test_div_function(self):
         num_a = 12
         num_b = 4
         result = 3
 
-        self.assertEqual(sub_function(num_a, num_b), result)
+        self.assertEqual(div_function(num_a, num_b), result)
 
 
 
