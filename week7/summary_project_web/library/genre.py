@@ -2,9 +2,26 @@ from enum import Enum
 
 
 class Genre(Enum):
-
-    drama = "Drama"
-    action = "Action"
-    comedy = "Comedy"
-    history = "History"
-
+    DRAMA = "DRAMA"
+    ACTION = "ACTION"
+    COMEDY = "COMEDY"
+    HISTORY = "HISTORY"
+    ROMANCE = "ROMANCE"
+    HORROR = "HORROR"
+    SCIENCE_FICTION = "SCIENCE_FICTION"
+    FANTASY = "FANTASY"
+    MYSTERY = "MYSTERY"
+    THRILLER = "THRILLER"
+    BIOGRAPHY = "BIOGRAPHY"
+    SELF_HELP = "SELF_HELP"
+    POETRY = "POETRY"
+    CHILDREN = "CHILDREN"
+    CLASSICS = "CLASSICS"
+    PHILOSOPHY = "PHILOSOPHY"
+    RELIGION = "RELIGION"
+    CRIME = "CRIME"
+    ADVENTURE = "ADVENTURE"
+    HEALTH = "HEALTH"
+    COOKBOOK = "COOKBOOK"
+    ART = "ART"
+    MUSIC = "MUSIC"

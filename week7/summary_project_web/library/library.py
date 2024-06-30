@@ -1,14 +1,19 @@
 import json
+import os
 
 from week7.summary_project_web.library.book import Book
+from week7.summary_project_web.library.genre import Genre
 from week7.summary_project_web.library.utils import Utils
 
 
 class Library:
-    BOOKS_FILE = r'C:\Users\Admin\PycharmProjects\AI\automation project\week7\summary_project_web\books.json'
+    BOOKS_FILE = 'books.json'
 
     def __init__(self):
-        self.books = self.load_books()
+        self.books = []
+        if not os.path.exists(self.BOOKS_FILE):
+            self.save_books()  # Create an empty file if it doesn't exist
+        self.load_books()
 
     def load_books(self):
         try:
@@ -117,39 +122,23 @@ class Library:
         title = form_data['title']
         author = form_data['author']
         publication_year = form_data['publication_year']
-        genre = form_data['genre']
+        genre_str = form_data['genre']  # Assuming genre_str is passed from form data
 
-        if not Utils.validate_book_name(title):
-            return "Invalid title. Please enter a valid title (letters, numbers, spaces, and hyphens allowed)."
-        if not Utils.validate_name(author):
-            return "Invalid author name. Please enter a valid name (letters, spaces, and hyphens allowed)."
-        if not Utils.validate_year(publication_year):
-            return "Invalid publication year. Please enter a valid four-digit year."
-        if not Utils.validate_name(genre):
-            return "Invalid genre. Please enter a valid genre (letters, spaces, and hyphens allowed)."
-
-        new_book = Book(title, author, int(publication_year), genre)
+        genre_enum = Genre[genre_str]  # Convert string to Genre enum
+        new_book = Book(title, author, publication_year, genre_enum)
         self.add_book(new_book)
 
     def handle_edit_book(self, form_data, book):
         new_title = form_data['title']
         author = form_data['author']
         publication_year = form_data['publication_year']
-        genre = form_data['genre']
+        genre_str = form_data['genre']  # Assuming genre_str is passed from form data
 
-        if not Utils.validate_book_name(new_title):
-            return "Invalid title. Please enter a valid title (letters, numbers, spaces, and hyphens allowed)."
-        if not Utils.validate_name(author):
-            return "Invalid author name. Please enter a valid name (letters, spaces, and hyphens allowed)."
-        if not Utils.validate_year(publication_year):
-            return "Invalid publication year. Please enter a valid four-digit year."
-        if not Utils.validate_name(genre):
-            return "Invalid genre. Please enter a valid genre (letters, spaces, and hyphens allowed)."
-
+        genre_enum = Genre[genre_str]  # Convert string to Genre enum
         book.title = new_title
         book.author = author
-        book.publication_year = int(publication_year)
-        book.genre = genre
+        book.publication_year = publication_year
+        book.genre = genre_enum
         self.save_books()
 
     def handle_search_books(self, form_data):

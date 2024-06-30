@@ -10,9 +10,9 @@ class Utils:
 
     @staticmethod
     def validate_year(year):
-        # Regex to check if the year is a four-digit number
-        pattern = r'^\d{4}$'
-        return bool(re.match(pattern, year))
+        if re.fullmatch(r'\d{1,4}', str(year)) and int(year) < 2025:
+            return True
+        return False
 
     @staticmethod
     def validate_book_name(name):
