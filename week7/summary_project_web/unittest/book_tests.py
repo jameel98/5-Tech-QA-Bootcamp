@@ -9,6 +9,7 @@ class TestBook(unittest.TestCase):
     def setUp(self):
         self.book = Book("1984", "George Orwell", 1949, Genre.DRAMA)
 
+    # test books
     def test_initialization(self):
         self.assertEqual(self.book.title, "1984")
         self.assertEqual(self.book.author, "George Orwell")
