@@ -7,13 +7,13 @@ from week7.summary_project_web.library.utils import Utils
 class TestBook(unittest.TestCase):
 
     def setUp(self):
-        self.book = Book("1984", "George Orwell", 1949, Genre.drama)
+        self.book = Book("1984", "George Orwell", 1949, Genre.DRAMA)
 
     def test_initialization(self):
         self.assertEqual(self.book.title, "1984")
         self.assertEqual(self.book.author, "George Orwell")
         self.assertEqual(self.book.publication_year, 1949)
-        self.assertEqual(self.book.genre, Genre.drama)
+        self.assertEqual(self.book.genre, Genre.DRAMA)
 
     def test_title_property(self):
         self.book.title = "Animal Farm"
@@ -36,8 +36,8 @@ class TestBook(unittest.TestCase):
             self.book.publication_year = "Year1945"
 
     def test_genre_property(self):
-        self.book.genre = Genre.comedy
-        self.assertEqual(self.book.genre, Genre.comedy)
+        self.book.genre = Genre.COMEDY
+        self.assertEqual(self.book.genre, Genre.COMEDY)
         with self.assertRaises(ValueError):
             self.book.genre = "InvalidGenre"
 
@@ -46,7 +46,7 @@ class TestBook(unittest.TestCase):
             'title': "1984",
             'author': "George Orwell",
             'publication_year': 1949,
-            'genre': Genre.drama
+            'genre': Genre.DRAMA
         }
         self.assertEqual(self.book.to_dict(), expected)
 
@@ -55,20 +55,20 @@ class TestBook(unittest.TestCase):
             'title': "Brave New World",
             'author': "Aldous Huxley",
             'publication_year': 1932,
-            'genre': Genre.history
+            'genre': Genre.HISTORY
         }
         new_book = Book.from_dict(data)
         self.assertEqual(new_book.title, "Brave New World")
         self.assertEqual(new_book.author, "Aldous Huxley")
         self.assertEqual(new_book.publication_year, 1932)
-        self.assertEqual(new_book.genre, Genre.history)
+        self.assertEqual(new_book.genre, Genre.HISTORY)
 
     def test_str(self):
         self.assertEqual(str(self.book), "Title: 1984, Author: George Orwell, Year: 1949, Genre: Genre.drama")
 
     def test_eq(self):
-        same_book = Book("1984", "George Orwell", 1949, Genre.drama)
-        different_book = Book("Animal Farm", "George Orwell", 1945, Genre.comedy)
+        same_book = Book("1984", "George Orwell", 1949, Genre.DRAMA)
+        different_book = Book("Animal Farm", "George Orwell", 1945, Genre.COMEDY)
         self.assertTrue(self.book == same_book)
         self.assertFalse(self.book == different_book)
 
