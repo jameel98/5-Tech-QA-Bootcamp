@@ -52,6 +52,7 @@ class Library:
         else:
             return self.books
 
+    # adding search method
     def search_books(self, search_type, search_value):
         search_funcs = {
             'title': lambda book: book.title == search_value,

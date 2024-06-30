@@ -16,14 +16,7 @@ class LibraryTest(unittest.TestCase):
         if os.path.exists(self.test_books_file):
             os.remove(self.test_books_file)
 
-    def create_test_books_file(self, data):
-        try:
-            with open(self.test_books_file, 'w') as file:
-                json.dump(data, file, indent=4)
-            print(f"Test books file created with data: {data}")  # Debug print
-        except Exception as e:
-            print(f"An error occurred while saving books: {e}")
-
+    # test library functionality
     def test_initialization_with_existing_file(self):
         # Arrange
         # initial books

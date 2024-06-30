@@ -14,6 +14,7 @@ class Book:
     def title(self):
         return self._title
 
+    # adding verifications in setters
     @title.setter
     def title(self, title):
         if Utils.validate_book_name(title):
