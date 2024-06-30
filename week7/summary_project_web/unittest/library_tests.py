@@ -12,9 +12,9 @@ class LibraryTest(unittest.TestCase):
         self.test_books_file = 'books.json'
         self.library = Library()
 
-    # def tearDown(self):
-    #     if os.path.exists(self.test_books_file):
-    #         os.remove(self.test_books_file)
+    def tearDown(self):
+        if os.path.exists(self.test_books_file):
+            os.remove(self.test_books_file)
 
     def create_test_books_file(self, data):
         try:
@@ -71,7 +71,6 @@ class LibraryTest(unittest.TestCase):
         # Arrange
         book = Book("1984", "George Orwell", 1949, "pop")
         self.library.books.append(book)
-        self.create_test_books_file(self.library.books)
 
         # Act and Assert
         with self.assertRaises(ValueError) as context:
@@ -83,7 +82,6 @@ class LibraryTest(unittest.TestCase):
         # Arrange
         book = Book("@#1984", "George Orwell", 1949, Genre.DRAMA)
         self.library.books.append(book)
-        self.create_test_books_file(self.library.books)
 
         # Act and Assert
         with self.assertRaises(ValueError) as context:
@@ -95,7 +93,6 @@ class LibraryTest(unittest.TestCase):
         # Arrange
         book = Book("1984", "George 123", 1949, Genre.DRAMA)
         self.library.books.append(book)
-        self.create_test_books_file(self.library.books)
 
         # Act and Assert
         with self.assertRaises(ValueError) as context:
@@ -107,7 +104,6 @@ class LibraryTest(unittest.TestCase):
         # Arrange
         book = Book("1984", "George", 19491, Genre.DRAMA)
         self.library.books.append(book)
-        self.create_test_books_file(self.library.books)
 
         # Act and Assert
         with self.assertRaises(ValueError) as context:
@@ -134,71 +130,51 @@ class LibraryTest(unittest.TestCase):
 
     def test_edit_book_invalid_title(self):
         # Arrange
-        # initial books
         book = Book("1984", "George Orwell", 1949, Genre.DRAMA)
         new_book = Book("@#pop 123", "George Orwell", 1949, Genre.ACTION)
-
-        # add book to the library
         self.library.books = [book]
-        # save books
         self.library.save_books()
 
-        # Act
-        self.library.edit_book("1984", new_book)
-
-        # Assert
-        self.assertEqual(self.library.books.pop().title, "pop 123")
+        # Act and Assert
+        with self.assertRaises(ValueError) as context:
+            self.library.edit_book("1984", new_book)
+        self.assertEqual(str(context.exception), "title must contain alphabet and numbers only")
 
     def test_edit_book_invalid_author(self):
         # Arrange
-        # initial books
         book = Book("1984", "George Orwell", 1949, Genre.DRAMA)
         new_book = Book("pop 123", "123 Orwell", 1949, Genre.ACTION)
-
-        # add book to the library
         self.library.books = [book]
-        # save books
         self.library.save_books()
 
-        # Act
-        self.library.edit_book("1984", new_book)
-
-        # Assert
-        self.assertEqual(self.library.books.pop().title, "pop 123")
+        # Act and Assert
+        with self.assertRaises(ValueError) as context:
+            self.library.edit_book("1984", new_book)
+        self.assertEqual(str(context.exception), "author name must contain alphabet only")
 
     def test_edit_book_invalid_year(self):
         # Arrange
-        # initial books
         book = Book("1984", "George Orwell", 1949, Genre.DRAMA)
         new_book = Book("pop 123", "George Orwell", 19491, Genre.ACTION)
-
-        # add book to the library
         self.library.books = [book]
-        # save books
         self.library.save_books()
 
-        # Act
-        self.library.edit_book("1984", new_book)
-
-        # Assert
-        self.assertEqual(self.library.books.pop().title, "pop 123")
+        # Act and Assert
+        with self.assertRaises(ValueError) as context:
+            self.library.edit_book("1984", new_book)
+        self.assertEqual(str(context.exception), "publication year must be number and less than 2025")
 
     def test_edit_book_invalid_genre(self):
         # Arrange
-        # initial books
         book = Book("1984", "George Orwell", 1949, Genre.DRAMA)
         new_book = Book("pop 123", "George Orwell", 1949, "badd")
-
-        # add book to the library
         self.library.books = [book]
-        # save books
         self.library.save_books()
 
-        # Act
-        self.library.edit_book("1984", new_book)
-
-        # Assert
-        self.assertEqual(self.library.books.pop().title, "pop 123")
+        # Act and Assert
+        with self.assertRaises(ValueError) as context:
+            self.library.edit_book("1984", new_book)
+        self.assertEqual(str(context.exception), "Genre must be an instance of Genre Enum, got <class 'str'>")
 
     def test_list_books(self):
         # Arrange
