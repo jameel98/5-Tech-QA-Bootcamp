@@ -6,7 +6,6 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class CheckBoxes(BasePage):
-
     HEAD_LINE = "h3"
 
     CHECK_BOX1 = "//form[@id='checkboxes']/input[1]"
@@ -27,15 +26,15 @@ class CheckBoxes(BasePage):
 
     def click_check_box1(self):
         button = WebDriverWait(self._driver, 10).until(
-            EC.visibility_of_element_located((By.XPATH, self.CHECK_BOX1))
+            EC.element_to_be_clickable((By.XPATH, self.CHECK_BOX1))
         )
-        button.click()
+        if not button.is_selected():
+            button.click()
 
-    def click_check_box2(self):
+    def unclick_check_box1(self):
         button = WebDriverWait(self._driver, 10).until(
-            EC.visibility_of_element_located((By.XPATH, self.CHECK_BOX2))
+            EC.element_to_be_clickable((By.XPATH, self.CHECK_BOX1))
         )
-        button.click()
-
-
+        if button.is_selected():
+            button.click()
 
