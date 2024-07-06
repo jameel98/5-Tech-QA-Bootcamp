@@ -2,12 +2,13 @@ import os
 import time
 import unittest
 
-from selenium.webdriver import ActionChains
+from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 
 from week9.heroku_app.infra.browser_wrapper import BrowserWrapper
 from week9.heroku_app.infra.config_provider import ConfigProvider
+from week9.heroku_app.logic.Hovers import Hovers
 from week9.heroku_app.logic.ab_page import ABPage
 from week9.heroku_app.logic.add_remove_element import AddRemoveElement
 from week9.heroku_app.logic.challenging_dom import ChallengingDom
@@ -17,7 +18,10 @@ from week9.heroku_app.logic.drag_drop import DragDrop
 from week9.heroku_app.logic.dropdown import DropDown
 from week9.heroku_app.logic.dynamic_controls import DynamicControls
 from week9.heroku_app.logic.file_download import FileDownload
+from week9.heroku_app.logic.file_upload import FileUpload
+from week9.heroku_app.logic.geo_location import GeoLocation
 from week9.heroku_app.logic.home_page import HomePage
+from week9.heroku_app.logic.slider import Slider
 
 
 class TestInternet(unittest.TestCase):
@@ -247,3 +251,82 @@ class TestInternet(unittest.TestCase):
         # Assert the file exists
         assert os.path.exists(download_path), f"File was not downloaded to {download_path}"
         print(f"File downloaded to {download_path}")
+
+    def test_file_upload(self):
+        self.home_page.load()
+        links = self.home_page.get_all_links()
+        links[17].click()
+
+        file_path = r'C:\Users\Admin\Downloads\hello.txt'
+        # Ensure the file exists
+        assert os.path.exists(file_path), f"File not found: {file_path}"
+
+        file_upload= FileUpload(self.driver)
+
+        # Locate the file input element and upload the file
+        file_input = file_upload.upload_button()
+        file_input.send_keys(file_path)
+
+        # Locate and click the upload button
+        submit_button = file_upload.submit_button()
+        submit_button.click()
+
+        # Verify the file is uploaded successfully by checking the presence of a success message
+        success_message = file_upload.get_success_message().text
+        assert "File Uploaded!" in success_message, "File upload failed"
+
+    def test_location(self):
+        self.home_page.load()
+        links = self.home_page.get_all_links()
+        links[22].click()
+
+        self.location = GeoLocation(self.driver)
+
+        self.location.click_location()
+        self.assertTrue(self.location.is_location_displayed())
+
+    def test_slider(self):
+        self.home_page.load()
+        links = self.home_page.get_all_links()
+        links[23].click()
+
+        slider = Slider(self.driver)
+
+        sl = slider.get_slider()
+
+        # Locate the slider value display
+        value_display = slider.get_slide_value()
+
+        # Define the target value
+        target_value = "4.0"
+
+        # Move the slider handle to the target value
+        current_value = float(value_display.text)
+        target_value = float(target_value)
+
+        # Calculate the number of steps needed
+        steps = int((target_value - current_value) / 0.5)
+
+        # Send the appropriate number of arrow keys to move the slider
+        if steps > 0:
+            for _ in range(steps):
+                sl.send_keys(Keys.ARROW_RIGHT)
+        elif steps < 0:
+            for _ in range(abs(steps)):
+                sl.send_keys(Keys.ARROW_LEFT)
+
+    def test_hovers(self):
+        self.home_page.load()
+        links = self.home_page.get_all_links()
+        links[24].click()
+
+        hovers = Hovers(self.driver)
+
+        avatar = hovers.get_avatar(1)
+        action_chains = ActionChains(self.driver)
+        action_chains.move_to_element(avatar).perform()
+
+        # Wait for the hover text to be visible
+        hover_text_locator = hovers.get_user_name(1).text
+
+        self.assertEqual(hover_text_locator, "name: user1")
