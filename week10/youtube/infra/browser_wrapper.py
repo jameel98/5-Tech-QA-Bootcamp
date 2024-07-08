@@ -1,7 +1,6 @@
 import json
-
 from selenium import webdriver
-
+import undetected_chromedriver as uc
 from week10.parabank.infra.config_provider import ConfigProvider
 
 
@@ -14,7 +13,9 @@ class BrowserWrapper:
 
     def get_driver(self, url):
         if self.config["browser"] == "Chrome":
-            self._driver = webdriver.Chrome()
+            options = uc.ChromeOptions()
+            options.add_argument("--disable-blink-features=AutomationControlled")
+            self._driver = uc.Chrome(options=options)
         elif self.config["browser"] == "FireFox":
             self._driver = webdriver.Firefox()
         elif self.config["browser"] == "Edge":

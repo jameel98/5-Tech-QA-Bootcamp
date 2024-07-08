@@ -23,11 +23,11 @@ class Login(BaseAppPage):
         wait = WebDriverWait(self._driver, 20)
         return wait.until(EC.element_to_be_clickable((By.XPATH, self.PASSWORD_INPUT)))
 
-    def login_flow(self):
+    def login_flow(self, email, password):
 
         # Enter the email
         email_input = self.get_email_input()
-        email_input.send_keys(self.config["email"])
+        email_input.send_keys(email)
         email_input.send_keys(Keys.ENTER)
 
         # Wait for the password field to load
@@ -35,7 +35,7 @@ class Login(BaseAppPage):
 
         # Enter the password
         password_input = self.get_password_input()
-        password_input.send_keys(self.config["password"])
+        password_input.send_keys(password)
         password_input.send_keys(Keys.ENTER)
 
         # Wait for the login process to complete

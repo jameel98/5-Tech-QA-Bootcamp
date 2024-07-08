@@ -1,3 +1,4 @@
+from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -8,6 +9,8 @@ from week10.parabank.infra.base_page import BasePage
 class BaseAppPage(BasePage):
     SIGNIN_BUTTON = '//div[@id="buttons"]/ytd-button-renderer'
     AVATAR = "//img[@id='img' and @alt='Avatar image']"
+    SEARCH = "//input[@id='search']"
+    SEARCH_RESULTS = "#video-title"
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -21,5 +24,29 @@ class BaseAppPage(BasePage):
         return element
 
     def get_avatar(self):
-        return self._driver.find_element(By.XPATH, self.AVATAR)
+        wait = WebDriverWait(self._driver, 10)
+        return wait.until(EC.element_to_be_clickable((By.XPATH, self.AVATAR)))
+
+    def get_search_input(self):
+        wait = WebDriverWait(self._driver, 10)
+        return wait.until(EC.element_to_be_clickable((By.XPATH, self.SEARCH)))
+
+    def search_video(self, query):
+        search_box = self.get_search_input()
+        search_box.send_keys(query)
+        search_box.send_keys(Keys.ENTER)
+
+    def get_search_results(self):
+        WebDriverWait(self._driver, 10).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, self.SEARCH_RESULTS))
+        )
+        results = self._driver.find_elements(By.CSS_SELECTOR, self.SEARCH_RESULTS)
+        return [result.get_attribute('title') for result in results if result.get_attribute('title')]
+
+    def click_on_first_video(self):
+        # Wait for search results to load and click on the first video
+        video_result = WebDriverWait(self._driver, 10).until(
+            EC.element_to_be_clickable((By.ID, self.SEARCH_RESULTS))
+        )
+        video_result.click()
 
