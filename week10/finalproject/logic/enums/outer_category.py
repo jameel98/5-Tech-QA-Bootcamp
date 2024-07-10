@@ -11,3 +11,5 @@ class OuterCategory:
     BOYS = "ילדים"
     MALES = "גברים"
     FEMALES = "נשים"
+    JUST_LANDED = "JUST LANDED"
+    ON_SALE = "ON SALE"

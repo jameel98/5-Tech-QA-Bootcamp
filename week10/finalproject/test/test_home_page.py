@@ -3,6 +3,8 @@ import unittest
 
 from week10.finalproject.infra.browser_wrapper import BrowserWrapper
 from week10.finalproject.logic.base_app_page import BaseAppPage
+from week10.finalproject.logic.enums.outer_category import OuterCategory
+from week10.finalproject.logic.enums.sports import Sports
 
 
 class TestHomePage(unittest.TestCase):
@@ -25,6 +27,7 @@ class TestHomePage(unittest.TestCase):
 
     def test_search_by_category(self):
         # act
-        self.app_page.find_elements_by_category_train()
+        self.app_page.hover_over_outer_category(OuterCategory.SPORTS)
+        self.app_page.click_on_inner_category(Sports.TRAINING)
         #assert
-        self.app_page.get_search_results(self.config["search_text_input"])
+        self.app_page.get_search_results(Sports.TRAINING)

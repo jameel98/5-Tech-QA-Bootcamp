@@ -17,12 +17,6 @@ class BaseAppPage(BasePage):
     def load(self):
         self._driver.get(self.get_config()["base_url"])
 
-    def click_just_landed(self):
-        self.navbar.click_just_landed_button()
-
-    def click_on_sale(self):
-        self.navbar.click_on_sale_button()
-
     def click_fav_list(self):
         self.navbar.click_fav_page_button()
 
@@ -50,7 +44,11 @@ class BaseAppPage(BasePage):
                 return True
             return False
 
-    def find_elements_by_category_train(self):
-        self.navbar.hover_sports_button()
-        self.navbar.click_train_button()
+    def hover_over_outer_category(self, category):
+        self.navbar.hover_over_outer_category(category)
 
+    def click_on_out_category(self, category):
+        self.navbar.click_on_outer_category(category)
+
+    def click_on_inner_category(self, category):
+        self.navbar.click_on_inner_category(category)
