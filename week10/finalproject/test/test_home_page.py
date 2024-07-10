@@ -21,5 +21,10 @@ class TestHomePage(unittest.TestCase):
     def test_search_item_by_name(self):
         self.app_page.search_item_by_text(self.config["search_text_input"])
         time.sleep(5)
-        self.assertTrue(self.app_page.get_search_results())
+        self.assertTrue(self.app_page.get_search_results(self.config["search_text_input"]))
 
+    def test_search_by_category(self):
+        # act
+        self.app_page.find_elements_by_category_train()
+        #assert
+        self.app_page.get_search_results(self.config["search_text_input"])
