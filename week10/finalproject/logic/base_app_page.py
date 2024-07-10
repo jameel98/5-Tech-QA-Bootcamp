@@ -9,6 +9,9 @@ from week10.parabank.infra.base_page import BasePage
 class BaseAppPage(BasePage):
     SIGNIN_BUTTON = '//div[text()="התחברות"]'
     AVATAR = '//span[@class="profile-button-new-menu-underline_1fv_"]'
+    SEARCH_TEXT_BUTTON = '//button[@class="search-button_1ENs"]'
+    SEARCH_TEXT_INPUT = '//input[@class="input_sILM"]'
+    SEARCH_RESULTS = '//ol[@class="product-list_yyTm"]/li'
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -25,26 +28,29 @@ class BaseAppPage(BasePage):
         wait = WebDriverWait(self._driver, 10)
         return wait.until(EC.element_to_be_clickable((By.XPATH, self.AVATAR)))
 
-    def get_search_input(self):
+    def get_search_text_button(self):
         wait = WebDriverWait(self._driver, 10)
-        return wait.until(EC.element_to_be_clickable((By.XPATH, self.SEARCH)))
+        return wait.until(EC.element_to_be_clickable((By.XPATH, self.SEARCH_TEXT_BUTTON)))
 
-    def search_video(self, query):
-        search_box = self.get_search_input()
+    def get_search_text_input(self):
+        wait = WebDriverWait(self._driver, 10)
+        return wait.until(EC.element_to_be_clickable((By.XPATH, self.SEARCH_TEXT_INPUT)))
+
+    def search_item_by_text(self, query):
+        search_button = self.get_search_text_button()
+        search_button.click()
+        search_box = self.get_search_text_input()
         search_box.send_keys(query)
         search_box.send_keys(Keys.ENTER)
 
     def get_search_results(self):
         WebDriverWait(self._driver, 10).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, self.SEARCH_RESULTS))
+            EC.presence_of_element_located((By.XPATH, self.SEARCH_RESULTS))
         )
-        results = self._driver.find_elements(By.CSS_SELECTOR, self.SEARCH_RESULTS)
-        return [result.get_attribute('title') for result in results if result.get_attribute('title')]
+        results = self._driver.find_elements(By.XPATH, self.SEARCH_RESULTS)
 
-    def click_on_first_video(self):
-        # Wait for search results to load and click on the first video
-        video_result = WebDriverWait(self._driver, 10).until(
-            EC.element_to_be_clickable((By.ID, self.SEARCH_RESULTS))
-        )
-        video_result.click()
-
+        for i in range(1, len(results) + 1):
+            element = self._driver.find_element(By.XPATH, self.SEARCH_RESULTS + f"[{i}]/div[2]")
+            if element.get_attribute('title'):
+                return True
+            return False

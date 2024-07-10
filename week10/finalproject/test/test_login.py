@@ -29,3 +29,5 @@ class TestLogin(unittest.TestCase):
     def test_login_unsuccessfully(self):
         self.login_page.login_flow(self.config["email"], Utils.generate_random_string(5))
 
+        self.assertIsNone(self.app_page.get_avatar())
+

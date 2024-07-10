@@ -13,9 +13,7 @@ class BrowserWrapper:
 
     def get_driver(self, url):
         if self.config["browser"] == "Chrome":
-            options = uc.ChromeOptions()
-            options.add_argument("--disable-blink-features=AutomationControlled")
-            self._driver = uc.Chrome(options=options)
+            self._driver = webdriver.Chrome()
         elif self.config["browser"] == "FireFox":
             self._driver = webdriver.Firefox()
         elif self.config["browser"] == "Edge":
