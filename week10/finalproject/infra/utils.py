@@ -4,6 +4,7 @@ import random
 
 class Utils:
 
-    def generate_random_string(N):
+    @staticmethod
+    def generate_random_string(n):
         return ''.join(random.choices(string.ascii_uppercase +
-                                      string.digits, k=N))
+                                      string.digits, k=n))
