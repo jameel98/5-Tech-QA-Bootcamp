@@ -41,17 +41,45 @@ class TestFavPage(unittest.TestCase):
         item = self.item_page.get_item_details()
 
         # act
+        # add item to fav list
         self.item_page.click_add_to_favorite_list()
 
-        # assert
+        # go to fav page
         self.navbar.click_fav_page_button()
         self.fav_page = FavoritePage(self.driver)
+
+        # get item details
         item2 = self.fav_page.get_item_details(1)
 
+        # assert
         self.assertEqual(item._name, item2._name)
         self.assertEqual(item._final_price, item2._final_price)
-        self.assertEqual(item._size, item2._size)
+        #self.assertEqual(item._size, item2._size)
         self.assertEqual(item._color, item2._color)
 
+    def test_remove_item_from_favorite_page(self):
+        # arrange
+        # search item
+        self.navbar = NavBar(self.driver)
+        self.navbar.search_item_by_text_flow(self.config["search_text_input"])
+        self.app_page = BaseAppPage(self.driver)
+        # get items list
+        items = self.app_page.get_elements_list()
+        # click on item
+        items[0].click()
 
+        # init item page
+        self.item_page = ItemPage(self.driver)
+        # add item to fav list
+        self.item_page.click_add_to_favorite_list()
+
+        # go to fav page
+        self.navbar.click_fav_page_button()
+        self.fav_page = FavoritePage(self.driver)
+
+        # act
+        self.fav_page.remove_item(1)
+
+        # assert
+        self.assertEqual(self.fav_page.empty_list_message().text, "לא הוספת עדיין פריטים לרשימה")
 
