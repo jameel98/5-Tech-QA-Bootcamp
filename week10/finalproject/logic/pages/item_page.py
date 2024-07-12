@@ -31,8 +31,8 @@ class ItemPage(BaseAppPage):
         wait = WebDriverWait(self._driver, 10)
         self.item_name = wait.until(EC.element_to_be_clickable((By.XPATH, self.ITEM_NAME)))
         self.final_price = wait.until(EC.element_to_be_clickable((By.XPATH, self.FINAL_PRICE_LOC)))
-        self.color_options = wait.until(EC.element_to_be_clickable((By.XPATH, self.SIZE_OPTIONS_LOC)))
-        self.size_options = wait.until(EC.element_to_be_clickable((By.XPATH, self.SIZE_OPTIONS_LOC)))
+        self.color_options = wait.until(EC.presence_of_all_elements_located((By.XPATH, self.COLOR_OPTIONS_LOC)))
+        self.size_options = wait.until(EC.presence_of_all_elements_located((By.XPATH, self.SIZE_OPTIONS_LOC)))
         self.add_to_fav_button = wait.until(EC.element_to_be_clickable((By.XPATH, self.ADD_TO_FAV_LIST_BUTTON_LOC)))
 
     def get_item_name(self):
@@ -51,14 +51,14 @@ class ItemPage(BaseAppPage):
         self.add_to_fav_button.click()
 
     def get_item_details(self):
-        name = self.get_item_name().text()
-        price = self.get_final_price().text()
+        name = self.get_item_name().text
+        price = self.get_final_price().text
         colors = self.get_color_options()
         colors[0].click()
-        color = colors[0].text()
+        color = colors[0].text
         sizes = self.get_size_options()
         sizes[0].click()
-        size = sizes[0].text()
+        size = sizes[0].text
         item = Item(name, price, color, size)
         return item
 

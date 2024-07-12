@@ -13,6 +13,7 @@ class BaseAppPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
+
     def load(self):
         self._driver.get(self.get_config()["base_url"])
     #

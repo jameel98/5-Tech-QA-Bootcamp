@@ -8,7 +8,7 @@ from week10.finalproject.logic.pages.item_page import ItemPage
 from week10.finalproject.logic.pages.login_page import Login
 
 
-class TestCartPage(unittest.TestCase):
+class TestFavPage(unittest.TestCase):
 
     def setUp(self):
         # Initialize the driver
@@ -22,8 +22,7 @@ class TestCartPage(unittest.TestCase):
         self.navbar.click_signin_button()
         self.login_page = Login(self.driver)
         self.login_page.login_flow(self.config["email"], self.config["password"])
-
-        self.app_page = BaseAppPage(self.driver)
+        self.navbar.refresh_page()
 
     def tearDown(self):
         self.driver.quit()
@@ -31,7 +30,9 @@ class TestCartPage(unittest.TestCase):
     def test_add_item_to_favorite_page(self):
         # arrange
         # search item
+        self.navbar = NavBar(self.driver)
         self.navbar.search_item_by_text_flow(self.config["search_text_input"])
+        self.app_page = BaseAppPage(self.driver)
         items = self.app_page.get_elements_list()
         items[0].click()
 
@@ -45,7 +46,7 @@ class TestCartPage(unittest.TestCase):
         # assert
         self.navbar.click_fav_page_button()
         self.fav_page = FavoritePage(self.driver)
-        item2 = self.fav_page.get_item_details(0)
+        item2 = self.fav_page.get_item_details(1)
 
         self.assertEqual(item._name, item2._name)
         self.assertEqual(item._final_price, item2._final_price)

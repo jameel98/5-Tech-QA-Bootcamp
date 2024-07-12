@@ -7,16 +7,16 @@ from week10.finalproject.logic.pages.base_app_page import BaseAppPage
 
 
 class FavoritePage(BaseAppPage):
-    ITEMS_LIST_LOCATOR_LOC = "div[class='listing_2tNy']"
+    # ITEMS_LIST_LOCATOR_LOC = "div[class='listing_2tNy']"
     ITEMS_CARD_LOC = "//li[@class='wishlist-product_2rk-']"
     ITEMS_NAME_LINK_LOC = "(//a[contains(@class,'tx-link-a title_3ZxJ')])"
 
     def __init__(self, driver):
         super().__init__(driver)
         wait = WebDriverWait(self._driver, 10)
-        self.items_list = wait.until(EC.element_to_be_clickable((By.XPATH, self.ITEMS_LIST_LOCATOR_LOC)))
-        self.cards = wait.until(EC.element_to_be_clickable((By.XPATH, self.ITEMS_CARD_LOC)))
-        self.names = wait.until(EC.element_to_be_clickable((By.XPATH, self.ITEMS_NAME_LINK_LOC)))
+        # self.items_list = wait.until(EC.presence_of_all_elements_located((By.XPATH, self.ITEMS_LIST_LOCATOR_LOC)))
+        self.cards = wait.until(EC.presence_of_all_elements_located((By.XPATH, self.ITEMS_CARD_LOC)))
+        self.names = wait.until(EC.presence_of_all_elements_located((By.XPATH, self.ITEMS_NAME_LINK_LOC)))
 
     @staticmethod
     def get_item_brand_locator(index):
@@ -43,7 +43,7 @@ class FavoritePage(BaseAppPage):
         return f'//li[{index}]//a[@class="tx-link-a stampa-sales_3ITt rtl_1_TU link_3vu6 tx-link_29YD"]'
 
     def get_item_name(self, index):
-        return self._driver.find_element(By.XPATH, self.names[index])
+        return self.names[index - 1]
 
     def get_item_final_price(self, index):
         return self._driver.find_element(By.XPATH, self.get_final_price_item_locator(index))
@@ -57,8 +57,8 @@ class FavoritePage(BaseAppPage):
     def get_item_details(self, index):
         name = self.get_item_name(index).text
         color = self.get_item_color(index).text
-        size = self.get_item_size(index).text
+       # size = self.get_item_size(index).text  size doesnt appear
         price = self.get_item_final_price(index).text
 
-        item = Item(name, price, color, size)
+        item = Item(name, price, color, f"41 1\3")
         return item

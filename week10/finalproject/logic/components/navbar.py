@@ -3,38 +3,45 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+from week10.finalproject.infra.base_page import BasePage
 
-class NavBar:
+
+class NavBar(BasePage):
     SIGNIN_BUTTON_LOC = '//button[@data-test-id="qa-header-login-button"]'
     AVATAR_LOC = '//span[@class="profile-button-new-menu-underline_1fv_"]'
-    SEARCH_TEXT_BUTTON_LOC = '//button[@class="search-button_1ENs"]'
+    SEARCH_TEXT_BUTTON_LOC = '//div[@id="app-root"]//button[@class="search-button_1ENs"]'
     SEARCH_TEXT_INPUT_LOC = '//input[@class="input_sILM"]'
     FAV_PAGE_BUTTON_LOC = "//a[@data-test-id='qa-link-wishlist']"
     CART_PAGE_BUTTON_LOC = "//a[@data-test-id='qa-link-minicart']"
     OVERLAY_LOC = "//div[@class='fullscreen-overlay_2pj0']"
 
     def __init__(self, driver):
-        self._driver = driver
+        super().__init__(driver)
         self.actions = ActionChains(self._driver)
-        WebDriverWait(driver, 10).until(EC.invisibility_of_element_located((By.XPATH, self.OVERLAY_LOC)))
-
-        wait = WebDriverWait(self._driver, 10)
-        self.signin_button = wait.until(EC.element_to_be_clickable((By.XPATH, self.SIGNIN_BUTTON_LOC)))
-        self.search_text_button = wait.until(EC.element_to_be_clickable((By.XPATH, self.SEARCH_TEXT_BUTTON_LOC)))
-        self.fav_button = wait.until(EC.element_to_be_clickable((By.XPATH, self.FAV_PAGE_BUTTON_LOC)))
-        self.cart_page_button = wait.until(EC.element_to_be_clickable((By.XPATH, self.CART_PAGE_BUTTON_LOC)))
 
     def click_signin_button(self):
-        self.signin_button.click()
+
+        wait = WebDriverWait(self._driver, 10)
+        signin_button = wait.until(EC.element_to_be_clickable((By.XPATH, self.SIGNIN_BUTTON_LOC)))
+        signin_button.click()
 
     def click_fav_page_button(self):
-        self.fav_button.click()
+        wait = WebDriverWait(self._driver, 10)
+        fav_button = wait.until(EC.element_to_be_clickable((By.XPATH, self.FAV_PAGE_BUTTON_LOC)))
+        fav_button.click()
 
     def click_cart_page_button(self):
-        self.cart_page_button.click()
+        wait = WebDriverWait(self._driver, 10)
+        cart_page_button = wait.until(EC.element_to_be_clickable((By.XPATH, self.CART_PAGE_BUTTON_LOC)))
+        cart_page_button.click()
 
     def click_search_text_button(self):
-        self.search_text_button.click()
+        WebDriverWait(self._driver, 20).until(EC.invisibility_of_element_located(
+            (By.XPATH, self.OVERLAY_LOC)))
+
+        wait = WebDriverWait(self._driver, 10)
+        search_text_button = wait.until(EC.element_to_be_clickable((By.XPATH, self.SEARCH_TEXT_BUTTON_LOC)))
+        search_text_button.click()
 
     def hover_over_outer_category(self, category):
         wait = WebDriverWait(self._driver, 10)
