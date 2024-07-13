@@ -19,13 +19,8 @@ class ItemPage(BaseAppPage):
     ITEM_TAG_LOC = "span[class='black-bg_2mJm']"
     BRAND_LOC = "//div[@class='right_1o65']/span"
     ITEM_NAME_LOC = "//div[@class='right_1o65']//a"
-    QUICK_VIEW_LOC = "//div[@class='btn-quick_3Pv7 btn-quick-view_2SXw']"
-    TAG_NAME_QUICK_VIEW_LOC = '//*[@id="panel-root"]/div/div[2]/div/div[2]/div/div[2]/div/div[1]/div[2]/div/span'
-    BRAND_NAME_QUICK_VIEW_LOC = "a[class='tx-link-a brand_2ltz tx-link_29YD underline-hover_3GkV']"
-    FINAL_PRICE_QUICK_VIEW_LOC = 'div[data-test-id="qa-pdp-price-final"]'
-    SALE_PERCENT_QUICK_VIEW_LOC = 'a[class="tx-link-a stampa-sales_2O4Q link_3vu6 tx-link_29YD"]'
-    ACTUAL_PRICE_QUICK_VIEW_LOC = '//div[@class="row_2tcG strikethrough_t2Ab prices-regular_yum0"]'
-    TITLE_QUICK_VIEW_LOC = '//h1[@class="name_20R6"]'
+    MISSING_SIZE_ERROR_LOC = "//span[text()='מידה - שדה חובה.']"
+    MISSING_COLOR_ERROR_LOC = "//span[text()='שדה חובה.']"
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -56,6 +51,22 @@ class ItemPage(BaseAppPage):
         add_to_cart_button = wait.until(EC.element_to_be_clickable((By.XPATH, self.ADD_TO_CART_LIST_BUTTON_LOC)))
         add_to_cart_button.click()
 
+    def get_size_error_message(self):
+        wait = WebDriverWait(self._driver, 10)
+        return wait.until(EC.element_to_be_clickable((By.XPATH, self.MISSING_SIZE_ERROR_LOC)))
+
+    def get_color_error_message(self):
+        wait = WebDriverWait(self._driver, 10)
+        return wait.until(EC.element_to_be_clickable((By.XPATH, self.MISSING_COLOR_ERROR_LOC)))
+
+    def remove_color(self):
+        colors = self.get_color_options()
+        if 'selected' in colors[0].get_attribute('class'):
+            colors[0].click()
+        else:
+            colors[0].click()
+            colors[0].click()
+
     def pick_color(self):
         colors = self.get_color_options()
         if 'selected' in colors[0].get_attribute('class'):
@@ -63,6 +74,14 @@ class ItemPage(BaseAppPage):
         else:
             colors[0].click()
             return colors[0].get_attribute('title')
+
+    def remove_size(self):
+        sizes = self.get_size_options()
+        if 'selected' in sizes[0].get_attribute('class'):
+            sizes[0].click()
+        else:
+            sizes[0].click()
+            sizes[0].click()
 
     def pick_size(self):
         sizes = self.get_size_options()
@@ -78,4 +97,20 @@ class ItemPage(BaseAppPage):
         color = self.pick_color()
         size = self.pick_size()
         item = Item(name, price, color, size)
+        return item
+
+    def get_item_details_no_size(self):
+        name = self.get_item_name().text
+        price = self.get_final_price().text
+        color = self.pick_color()
+        self.remove_size()
+        item = Item(name, price, color, "")
+        return item
+
+    def get_item_details_no_color(self):
+        name = self.get_item_name().text
+        price = self.get_final_price().text
+        self.remove_color()
+        size = self.pick_size()
+        item = Item(name, price, "", size)
         return item

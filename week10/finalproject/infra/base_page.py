@@ -1,6 +1,6 @@
 from selenium import webdriver
 
-from week10.parabank.infra.config_provider import ConfigProvider
+from week10.finalproject.infra.config_provider import ConfigProvider
 
 
 class BasePage:

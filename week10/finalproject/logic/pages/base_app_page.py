@@ -3,8 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from week10.finalproject.logic.components.navbar import NavBar
-from week10.parabank.infra.base_page import BasePage
+from week10.finalproject.infra.base_page import BasePage
 
 
 class BaseAppPage(BasePage):
@@ -13,30 +12,8 @@ class BaseAppPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-
     def load(self):
         self._driver.get(self.get_config()["base_url"])
-    #
-    # def click_fav_list(self):
-    #     self.navbar.click_fav_page_button()
-    #
-    # def click_cart_page_button(self):
-    #     self.navbar.click_cart_page_button()
-    #
-    # def hover_over_outer_category(self, category):
-    #     self.navbar.hover_over_outer_category(category)
-    #
-    # def click_on_out_category(self, category):
-    #     self.navbar.click_on_outer_category(category)
-
-    # def click_on_inner_category(self, category):
-    #     self.navbar.click_on_inner_category(category)
-    #
-    # def search_item_by_text_flow(self, query):
-    #     self.navbar.click_search_text_button()
-    #     search_box = self.navbar.get_search_text_input()
-    #     search_box.send_keys(query)
-    #     search_box.send_keys(Keys.ENTER)
 
     def get_elements_list(self):
         WebDriverWait(self._driver, 10).until(

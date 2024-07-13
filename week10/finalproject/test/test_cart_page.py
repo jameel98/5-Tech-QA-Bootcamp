@@ -61,6 +61,44 @@ class TestCartPage(unittest.TestCase):
         self.assertEqual(item._name, item2._name)
         self.assertEqual(item._final_price, item2._final_price)
 
+    def test_add_item_to_cart_without_size(self):
+        # arrange
+        # search item
+        self.navbar = NavBar(self.driver)
+        self.navbar.search_item_by_text_flow(self.config["search_text_input"])
+        self.app_page = BaseAppPage(self.driver)
+        items = self.app_page.get_elements_list()
+        items[0].click()
+
+        # save item details
+        self.item_page = ItemPage(self.driver)
+        self.item_page.get_item_details_no_size()
+
+        # act
+        # add item to cart list
+        self.item_page.click_add_to_cart_list()
+        # assert
+        self.assertEqual(self.item_page.get_size_error_message().text, 'מידה - שדה חובה.')
+
+    def test_add_item_to_cart_without_color(self):
+        # arrange
+        # search item
+        self.navbar = NavBar(self.driver)
+        self.navbar.search_item_by_text_flow(self.config["search_text_input"])
+        self.app_page = BaseAppPage(self.driver)
+        items = self.app_page.get_elements_list()
+        items[0].click()
+
+        # save item details
+        self.item_page = ItemPage(self.driver)
+        self.item_page.get_item_details_no_color()
+
+        # act
+        # add item to cart list
+        self.item_page.click_add_to_cart_list()
+        # assert
+        self.assertEqual(self.item_page.get_color_error_message().text, 'שדה חובה.')
+
     def test_remove_item_from_cart_page(self):
         # arrange
         # search item
