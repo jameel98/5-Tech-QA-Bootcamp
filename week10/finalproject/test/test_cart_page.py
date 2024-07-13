@@ -1,14 +1,15 @@
 import unittest
 
 from week10.finalproject.infra.browser_wrapper import BrowserWrapper
+from week10.finalproject.logic.components.cart_pop_up import CartPopup
 from week10.finalproject.logic.components.navbar import NavBar
 from week10.finalproject.logic.pages.base_app_page import BaseAppPage
-from week10.finalproject.logic.pages.favorite_page import FavoritePage
+from week10.finalproject.logic.pages.cart_page import CartPage
 from week10.finalproject.logic.pages.item_page import ItemPage
 from week10.finalproject.logic.pages.login_page import Login
 
 
-class TestFavPage(unittest.TestCase):
+class TestCartPage(unittest.TestCase):
 
     def setUp(self):
         # Initialize the driver
@@ -31,7 +32,7 @@ class TestFavPage(unittest.TestCase):
 
         self.driver.quit()
 
-    def test_add_item_to_favorite_page(self):
+    def test_add_item_to_cart_page(self):
         # arrange
         # search item
         self.navbar = NavBar(self.driver)
@@ -45,43 +46,44 @@ class TestFavPage(unittest.TestCase):
         item = self.item_page.get_item_details()
 
         # act
-        # add item to fav list
-        self.item_page.click_add_to_favorite_list()
+        # add item to cart list
+        self.item_page.click_add_to_cart_list()
 
-        # go to fav page
-        self.navbar.click_fav_page_button()
-        self.fav_page = FavoritePage(self.driver)
+        # go to cart page
+        self.cart_pop = CartPopup(self.driver)
+        self.cart_pop.click_cart_button()
+        self.cart_page = CartPage(self.driver)
 
         # get item details
-        item2 = self.fav_page.get_item_details(1)
+        item2 = self.cart_page.get_item_details(1)
 
         # assert
         self.assertEqual(item._name, item2._name)
         self.assertEqual(item._final_price, item2._final_price)
 
-    def test_remove_item_from_favorite_page(self):
+    def test_remove_item_from_cart_page(self):
         # arrange
         # search item
         self.navbar = NavBar(self.driver)
         self.navbar.search_item_by_text_flow(self.config["search_text_input"])
         self.app_page = BaseAppPage(self.driver)
-        # get items list
         items = self.app_page.get_elements_list()
-        # click on item
         items[0].click()
 
-        # init item page
+        # save item details
         self.item_page = ItemPage(self.driver)
-        # add item to fav list
-        self.item_page.click_add_to_favorite_list()
+        self.item_page.get_item_details()
 
-        # go to fav page
-        self.navbar.click_fav_page_button()
-        self.fav_page = FavoritePage(self.driver)
+        # add item to cart list
+        self.item_page.click_add_to_cart_list()
+
+        # go to cart page
+        self.cart_pop = CartPopup(self.driver)
+        self.cart_pop.click_cart_button()
+        self.cart_page = CartPage(self.driver)
 
         # act
-        self.fav_page.remove_item(1)
+        self.cart_page.remove_item(1)
 
         # assert
-        self.assertEqual(self.fav_page.empty_list_message().text, "לא הוספת עדיין פריטים לרשימה")
-
+        self.assertEqual(self.cart_page.empty_list_message().text, "סל הקניות שלך ריק.")
