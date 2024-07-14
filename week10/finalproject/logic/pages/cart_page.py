@@ -19,14 +19,6 @@ class CartPage(BaseAppPage):
         self.names = wait.until(EC.presence_of_all_elements_located((By.XPATH, self.ITEMS_NAME_LINK_LOC)))
 
     @staticmethod
-    def get_item_brand_locator(index):
-        return f'//div[@class="container_1XqK"][{index}]/div/div[1]/div/strong/div'
-
-    @staticmethod
-    def get_item_link_locator(index):
-        return f"(//a[@class='tx-link-a name_1GBQ tx-link_29YD'])[{index}]"
-
-    @staticmethod
     def get_item_color_locator(index):
         return f'//div[@class="container_1XqK"][{index}]/div/div[1]/div/div/div[1]/span[@data-test-id="qa-item-color-value"]'
 
@@ -35,24 +27,8 @@ class CartPage(BaseAppPage):
         return f'//div[@class="container_1XqK"][{index}]/div/div[1]/div/div/div[2]/span[@data-test-id="qa-item-size-value"]'
 
     @staticmethod
-    def get_total_price_item_locator(index):
-        return f'//div[@class="container_1XqK"][{index}]/div/div[@class="cart-item_3yl1 rtl_3YUG"]/div[@class="column_34Ze total-price_rLA-"]'
-
-    @staticmethod
-    def get_regular_price_item_locator(index):
-        return f"(//div[@class='row_2tcG strikethrough_t2Ab price_kIgR'])[{index}]"
-
-    @staticmethod
     def get_final_price_item_locator( index):
         return f"(//div[@class='row_2tcG bold_2wBM price-final_13zw'])[{index}]"
-
-    @staticmethod
-    def get_discount_item_locator( index):
-        return f"(//a[@class='tx-link-a stampa-sales_3gHT link_3vu6 tx-link_29YD'])[{index}]"
-
-    @staticmethod
-    def get_quantity_item_locator( index):
-        return f"(//div[@class='select-container_tSy-'])[{index}]"
 
     @staticmethod
     def get_delete_item_by_index_locator( index):
@@ -85,10 +61,9 @@ class CartPage(BaseAppPage):
     def get_item_details(self, index):
         name = self.get_item_name(index).text
         color = self.get_item_color(index).text
-        # size = self.get_item_size(index).text  size doesnt appear
         price = self.get_item_final_price(index).text
 
-        item = Item(name, price, color, f"41 1\3")
+        item = Item(name, price, color)
         return item
 
     def remove_item(self, index):

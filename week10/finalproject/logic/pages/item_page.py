@@ -11,14 +11,9 @@ class ItemPage(BaseAppPage):
     SIZE_OPTIONS_LOC = "//div[@class='product-attributes-wrapper_3Ro3']//div[@data-test-id = 'qa-size-item']"
     COLOR_OPTIONS_LOC = "//div[@class='info-column_3TEX']//div[@data-test-id= 'qa-color-item']"
     COLOR_TITLE_LOC = "span[class='label-dynamic_3Y3S']"
-    PERCENTAGE_SALE_LOC = "//a[@class='tx-link-a stampa-sales_3ITt rtl_1_TU link_3vu6 tx-link_29YD']"
     FINAL_PRICE_LOC = "//div[@class='product-details-inside_1UkX']//div[@data-test-id='qa-pdp-price-final']"
-    ACTUAL_PRICE_LOC = "div[class='row_2tcG strikethrough_t2Ab regular-price_35Lt']"
     ADD_TO_FAV_LIST_BUTTON_LOC = "//div[@class='product-details-inside_1UkX']//div[@class='wishlist_2WY2']/button"
     ADD_TO_CART_LIST_BUTTON_LOC = "//button[@data-test-id='qa-add-to-cart-button']"
-    ITEM_TAG_LOC = "span[class='black-bg_2mJm']"
-    BRAND_LOC = "//div[@class='right_1o65']/span"
-    ITEM_NAME_LOC = "//div[@class='right_1o65']//a"
     MISSING_SIZE_ERROR_LOC = "//span[text()='מידה - שדה חובה.']"
     MISSING_COLOR_ERROR_LOC = "//span[text()='שדה חובה.']"
 
@@ -96,7 +91,7 @@ class ItemPage(BaseAppPage):
         price = self.get_final_price().text
         color = self.pick_color()
         size = self.pick_size()
-        item = Item(name, price, color, size)
+        item = Item(name, price, color)
         return item
 
     def get_item_details_no_size(self):
@@ -104,7 +99,7 @@ class ItemPage(BaseAppPage):
         price = self.get_final_price().text
         color = self.pick_color()
         self.remove_size()
-        item = Item(name, price, color, "")
+        item = Item(name, price, color)
         return item
 
     def get_item_details_no_color(self):
@@ -112,5 +107,5 @@ class ItemPage(BaseAppPage):
         price = self.get_final_price().text
         self.remove_color()
         size = self.pick_size()
-        item = Item(name, price, "", size)
+        item = Item(name, price, "")
         return item

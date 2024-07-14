@@ -12,9 +12,6 @@ class BaseAppPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    def load(self):
-        self._driver.get(self.get_config()["base_url"])
-
     def get_elements_list(self):
         WebDriverWait(self._driver, 10).until(
             EC.presence_of_element_located((By.XPATH, self.SEARCH_RESULTS_LOC))
@@ -27,8 +24,6 @@ class BaseAppPage(BasePage):
         for i in range(1, len(results) + 1):
             element = self._driver.find_element(By.XPATH, self.SEARCH_RESULTS_LOC + f"[{i}]/div[2]")
             title = element.get_attribute('title').lower()
-            print(title)
-            print(search_title)
             if search_title.lower() in title:
                 return True
             return False

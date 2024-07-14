@@ -1,9 +1,8 @@
 class Item:
-    def __init__(self, name, final_price, color, size):
+    def __init__(self, name, final_price, color):
         self._name = name
         self._final_price = final_price
         self._color = color
-        self._size = size
 
     # Getter for name
     @property
@@ -34,13 +33,3 @@ class Item:
     @color.setter
     def color(self, value):
         self._color = value
-
-    # Getter for size
-    @property
-    def size(self):
-        return self._size
-
-    # Setter for size
-    @size.setter
-    def size(self, value):
-        self._size = value

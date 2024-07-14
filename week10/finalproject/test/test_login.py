@@ -3,7 +3,7 @@ import unittest
 from week10.finalproject.infra.browser_wrapper import BrowserWrapper
 from week10.finalproject.infra.utils import Utils
 from week10.finalproject.logic.components.navbar import NavBar
-from week10.finalproject.logic.pages.base_app_page import BaseAppPage
+from week10.finalproject.logic.enums.messages import Messages
 from week10.finalproject.logic.pages.login_page import Login
 
 
@@ -38,5 +38,4 @@ class TestLogin(unittest.TestCase):
         # act
         self.login_page.click_login()
         # assert
-        self.assertEqual(self.login_page.get_error_message().text, "אימייל או סיסמה שגויים")
-
+        self.assertEqual(self.login_page.get_error_message().text, Messages.EMAIL_ERROR)

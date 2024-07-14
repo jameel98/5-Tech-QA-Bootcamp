@@ -3,3 +3,4 @@ class Messages:
     EMPTY_FAV_PAGE = "לא הוספת עדיין פריטים לרשימה"
     COLOR_ERROR = "שדה חובה."
     SIZE_ERROR = "מידה - שדה חובה."
+    EMAIL_ERROR =  "אימייל או סיסמה שגויים"

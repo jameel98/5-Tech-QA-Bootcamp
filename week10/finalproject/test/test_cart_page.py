@@ -29,6 +29,7 @@ class TestCartPage(unittest.TestCase):
         self.navbar.search_item_by_text_flow(self.config["search_text_input"])
         self.app_page = BaseAppPage(self.driver)
         self.app_page.click_on_element()
+        self.item_page = ItemPage(self.driver)
 
     def tearDown(self):
         self.driver.quit()
@@ -36,7 +37,6 @@ class TestCartPage(unittest.TestCase):
     def test_add_item_to_cart_page(self):
         # arrange
         # save item details
-        self.item_page = ItemPage(self.driver)
         item = self.item_page.get_item_details()
 
         # act
@@ -47,7 +47,6 @@ class TestCartPage(unittest.TestCase):
         self.cart_pop = CartPopup(self.driver)
         self.cart_pop.click_cart_button()
         self.cart_page = CartPage(self.driver)
-
         # get item details
         item2 = self.cart_page.get_item_details(1)
 
@@ -58,7 +57,6 @@ class TestCartPage(unittest.TestCase):
     def test_add_item_to_cart_without_size(self):
         # arrange
         # save item details
-        self.item_page = ItemPage(self.driver)
         self.item_page.get_item_details_no_size()
 
         # act
@@ -70,7 +68,6 @@ class TestCartPage(unittest.TestCase):
     def test_add_item_to_cart_without_color(self):
         # arrange
         # save item details
-        self.item_page = ItemPage(self.driver)
         self.item_page.get_item_details_no_color()
 
         # act
@@ -82,12 +79,9 @@ class TestCartPage(unittest.TestCase):
     def test_remove_item_from_cart_page(self):
         # arrange
         # save item details
-        self.item_page = ItemPage(self.driver)
         self.item_page.get_item_details()
-
         # add item to cart list
         self.item_page.click_add_to_cart_list()
-
         # go to cart page
         self.cart_pop = CartPopup(self.driver)
         self.cart_pop.click_cart_button()

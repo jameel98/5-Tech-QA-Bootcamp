@@ -28,7 +28,10 @@ class TestFavPage(unittest.TestCase):
         # search element
         self.navbar.search_item_by_text_flow(self.config["search_text_input"])
         self.app_page = BaseAppPage(self.driver)
+        # click element
         self.app_page.click_on_element()
+        # init item page
+        self.item_page = ItemPage(self.driver)
 
     def tearDown(self):
         self.driver.quit()
@@ -36,7 +39,6 @@ class TestFavPage(unittest.TestCase):
     def test_add_item_to_favorite_page(self):
         # arrange
         # save item details
-        self.item_page = ItemPage(self.driver)
         item = self.item_page.get_item_details()
 
         # act
@@ -56,11 +58,8 @@ class TestFavPage(unittest.TestCase):
 
     def test_remove_item_from_favorite_page(self):
         # arrange
-        # init item page
-        self.item_page = ItemPage(self.driver)
         # add item to fav list
         self.item_page.click_add_to_favorite_list()
-
         # go to fav page
         self.navbar.click_fav_page_button()
         self.fav_page = FavoritePage(self.driver)

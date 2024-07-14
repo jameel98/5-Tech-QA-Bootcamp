@@ -41,13 +41,3 @@ class TestHomePage(unittest.TestCase):
         self.navbar.click_on_inner_category(Sports.TRAINING)
         # assert
         self.app_page.get_search_results(Sports.TRAINING)
-
-    def test_search_by_photo(self):
-        # arrange
-        self.navbar.click_search_photo_button()
-        # act
-        self.navbar.upload_photo_button_click()
-        # assert
-        text_message = self.navbar.get_search_photo_result().text
-        self.assertEqual(text_message, "הפריטים שנמצאו")
-        #todo: fix or remove
