@@ -1,3 +1,4 @@
+import logging
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -8,9 +9,14 @@ class CartPopup:
 
     def __init__(self, driver):
         self._driver = driver
+        self.logger = logging.getLogger(__name__)
 
     def click_cart_button(self):
-        wait = WebDriverWait(self._driver, 10)
-        signin_button = wait.until(EC.element_to_be_clickable((By.XPATH, self.CART_BUTTON_LOC)))
-        signin_button.click()
-
+        try:
+            self.logger.info("Clicking on the cart button")
+            wait = WebDriverWait(self._driver, 10)
+            cart_button = wait.until(EC.element_to_be_clickable((By.XPATH, self.CART_BUTTON_LOC)))
+            cart_button.click()
+        except Exception as e:
+            self.logger.error(f"Failed to click on cart button: {str(e)}")
+            raise e
