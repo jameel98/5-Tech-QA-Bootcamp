@@ -3,6 +3,7 @@ import unittest
 from week10.finalproject.infra.browser_wrapper import BrowserWrapper
 from week10.finalproject.logic.components.cart_pop_up import CartPopup
 from week10.finalproject.logic.components.navbar import NavBar
+from week10.finalproject.logic.enums.messages import Messages
 from week10.finalproject.logic.pages.base_app_page import BaseAppPage
 from week10.finalproject.logic.pages.cart_page import CartPage
 from week10.finalproject.logic.pages.item_page import ItemPage
@@ -64,7 +65,7 @@ class TestCartPage(unittest.TestCase):
         # add item to cart list
         self.item_page.click_add_to_cart_list()
         # assert
-        self.assertEqual(self.item_page.get_size_error_message().text, 'מידה - שדה חובה.')
+        self.assertEqual(self.item_page.get_size_error_message().text, Messages.SIZE_ERROR)
 
     def test_add_item_to_cart_without_color(self):
         # arrange
@@ -76,7 +77,7 @@ class TestCartPage(unittest.TestCase):
         # add item to cart list
         self.item_page.click_add_to_cart_list()
         # assert
-        self.assertEqual(self.item_page.get_color_error_message().text, 'שדה חובה.')
+        self.assertEqual(self.item_page.get_color_error_message().text, Messages.COLOR_ERROR)
 
     def test_remove_item_from_cart_page(self):
         # arrange
@@ -96,4 +97,4 @@ class TestCartPage(unittest.TestCase):
         self.cart_page.remove_item(1)
 
         # assert
-        self.assertEqual(self.cart_page.empty_list_message().text, "סל הקניות שלך ריק.")
+        self.assertEqual(self.cart_page.empty_list_message().text, Messages.EMPTY_CART_PAGE)

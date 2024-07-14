@@ -2,6 +2,7 @@ import unittest
 
 from week10.finalproject.infra.browser_wrapper import BrowserWrapper
 from week10.finalproject.logic.components.navbar import NavBar
+from week10.finalproject.logic.enums.messages import Messages
 from week10.finalproject.logic.pages.base_app_page import BaseAppPage
 from week10.finalproject.logic.pages.favorite_page import FavoritePage
 from week10.finalproject.logic.pages.item_page import ItemPage
@@ -68,5 +69,5 @@ class TestFavPage(unittest.TestCase):
         self.fav_page.remove_item(1)
 
         # assert
-        self.assertEqual(self.fav_page.empty_list_message().text, "לא הוספת עדיין פריטים לרשימה")
+        self.assertEqual(self.fav_page.empty_list_message().text, Messages.EMPTY_FAV_PAGE)
 
