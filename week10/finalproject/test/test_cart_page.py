@@ -24,23 +24,16 @@ class TestCartPage(unittest.TestCase):
         self.login_page = Login(self.driver)
         self.login_page.login_flow(self.config["email"], self.config["password"])
         self.navbar.refresh_page()
+        # search element
+        self.navbar.search_item_by_text_flow(self.config["search_text_input"])
+        self.app_page = BaseAppPage(self.driver)
+        self.app_page.click_on_element()
 
     def tearDown(self):
-        # todo: remove all elements
-        # todo: shorter functions
-        # todo: remove unneccary code
-
         self.driver.quit()
 
     def test_add_item_to_cart_page(self):
         # arrange
-        # search item
-        self.navbar = NavBar(self.driver)
-        self.navbar.search_item_by_text_flow(self.config["search_text_input"])
-        self.app_page = BaseAppPage(self.driver)
-        items = self.app_page.get_elements_list()
-        items[0].click()
-
         # save item details
         self.item_page = ItemPage(self.driver)
         item = self.item_page.get_item_details()
@@ -63,13 +56,6 @@ class TestCartPage(unittest.TestCase):
 
     def test_add_item_to_cart_without_size(self):
         # arrange
-        # search item
-        self.navbar = NavBar(self.driver)
-        self.navbar.search_item_by_text_flow(self.config["search_text_input"])
-        self.app_page = BaseAppPage(self.driver)
-        items = self.app_page.get_elements_list()
-        items[0].click()
-
         # save item details
         self.item_page = ItemPage(self.driver)
         self.item_page.get_item_details_no_size()
@@ -82,13 +68,6 @@ class TestCartPage(unittest.TestCase):
 
     def test_add_item_to_cart_without_color(self):
         # arrange
-        # search item
-        self.navbar = NavBar(self.driver)
-        self.navbar.search_item_by_text_flow(self.config["search_text_input"])
-        self.app_page = BaseAppPage(self.driver)
-        items = self.app_page.get_elements_list()
-        items[0].click()
-
         # save item details
         self.item_page = ItemPage(self.driver)
         self.item_page.get_item_details_no_color()
@@ -101,13 +80,6 @@ class TestCartPage(unittest.TestCase):
 
     def test_remove_item_from_cart_page(self):
         # arrange
-        # search item
-        self.navbar = NavBar(self.driver)
-        self.navbar.search_item_by_text_flow(self.config["search_text_input"])
-        self.app_page = BaseAppPage(self.driver)
-        items = self.app_page.get_elements_list()
-        items[0].click()
-
         # save item details
         self.item_page = ItemPage(self.driver)
         self.item_page.get_item_details()

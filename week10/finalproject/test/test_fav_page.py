@@ -24,22 +24,16 @@ class TestFavPage(unittest.TestCase):
         self.login_page.login_flow(self.config["email"], self.config["password"])
         self.navbar.refresh_page()
 
-    def tearDown(self):
-        # todo: remove all elements
-        # todo: shorter functions
-        # todo: remove unneccary code
+        # search element
+        self.navbar.search_item_by_text_flow(self.config["search_text_input"])
+        self.app_page = BaseAppPage(self.driver)
+        self.app_page.click_on_element()
 
+    def tearDown(self):
         self.driver.quit()
 
     def test_add_item_to_favorite_page(self):
         # arrange
-        # search item
-        self.navbar = NavBar(self.driver)
-        self.navbar.search_item_by_text_flow(self.config["search_text_input"])
-        self.app_page = BaseAppPage(self.driver)
-        items = self.app_page.get_elements_list()
-        items[0].click()
-
         # save item details
         self.item_page = ItemPage(self.driver)
         item = self.item_page.get_item_details()
@@ -61,15 +55,6 @@ class TestFavPage(unittest.TestCase):
 
     def test_remove_item_from_favorite_page(self):
         # arrange
-        # search item
-        self.navbar = NavBar(self.driver)
-        self.navbar.search_item_by_text_flow(self.config["search_text_input"])
-        self.app_page = BaseAppPage(self.driver)
-        # get items list
-        items = self.app_page.get_elements_list()
-        # click on item
-        items[0].click()
-
         # init item page
         self.item_page = ItemPage(self.driver)
         # add item to fav list

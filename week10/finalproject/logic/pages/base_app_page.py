@@ -32,3 +32,7 @@ class BaseAppPage(BasePage):
             if search_title.lower() in title:
                 return True
             return False
+
+    def click_on_element(self):
+        items = self.get_elements_list()
+        items[0].click()
