@@ -21,11 +21,8 @@ class Login(BaseAppPage):
         # find element
         wait = WebDriverWait(self._driver, 10)
         try:
-            self.logger.info("Waiting for email input to be clickable.")
             self.email_input = wait.until(EC.element_to_be_clickable((By.XPATH, self.EMAIL_INPUT_LOC)))
-            self.logger.info("Waiting for password input to be clickable.")
             self.password_input = wait.until(EC.element_to_be_clickable((By.XPATH, self.PASSWORD_INPUT_LOC)))
-            self.logger.info("Waiting for login button to be clickable.")
             self.login_button = wait.until(EC.element_to_be_clickable((By.XPATH, self.LOGIN_BUTTON_LOC)))
         except Exception as e:
             self.logger.error(f"Error initializing Login page elements: {e}")

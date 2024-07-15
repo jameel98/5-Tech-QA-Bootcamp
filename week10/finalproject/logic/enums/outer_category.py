@@ -1,6 +1,3 @@
-from enum import Enum
-
-
 class OuterCategory:
     SPORTS = "SPORTS"
     HOME = "HOME"

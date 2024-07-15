@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from week10.finalproject.logic.objects.item import Item
 from week10.finalproject.logic.pages.base_app_page import BaseAppPage
 
+
 class CartPage(BaseAppPage):
     CART_LIST_LOC = "//div[@class='cart-items-list_wmqo']"
     ITEMS_CARD_LOC = "//div[@class='container_1XqK']"

@@ -21,7 +21,6 @@ class TestLogin(unittest.TestCase):
         self.driver = self.browser_wrapper.get_driver(self.config["base_url"])
 
         # Initialize pages
-        self.logger.info("Initializing page components.")
         self.navbar = NavBar(self.driver)
         self.navbar.click_signin_button()
         self.login_page = Login(self.driver)
@@ -32,28 +31,26 @@ class TestLogin(unittest.TestCase):
 
     def test_login_successfully(self):
         # Arrange
-        self.logger.info("Filling in login details with valid credentials.")
+        self.logger.info("test login successfully starts.")
         self.login_page.fill_email_input(self.config["email"])
         self.login_page.fill_password_input(self.config["password"])
 
         # Act
-        self.logger.info("Clicking the login button.")
+        # click on login
         self.login_page.click_login()
 
         # Assert
-        self.logger.info("Checking if the avatar is present.")
         self.assertIsNotNone(self.navbar.get_avatar())
 
     def test_login_unsuccessfully(self):
         # Arrange
-        self.logger.info("Filling in login details with invalid password.")
+        self.logger.info("login unsuccessfully started.")
         self.login_page.fill_email_input(self.config["email"])
         self.login_page.fill_password_input(Utils.generate_random_string(5))
 
         # Act
-        self.logger.info("Clicking the login button.")
+        # click on login
         self.login_page.click_login()
 
         # Assert
-        self.logger.info("Checking for the error message.")
         self.assertEqual(self.login_page.get_error_message().text, Messages.EMAIL_ERROR)

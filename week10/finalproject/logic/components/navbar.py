@@ -1,5 +1,3 @@
-import os
-import time
 import logging
 
 from selenium.webdriver import ActionChains, Keys
@@ -8,6 +6,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from week10.finalproject.infra.base_page import BasePage
+
 
 class NavBar(BasePage):
     SIGNIN_BUTTON_LOC = '//button[@data-test-id="qa-header-login-button"]'

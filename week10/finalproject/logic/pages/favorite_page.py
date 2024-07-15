@@ -19,7 +19,6 @@ class FavoritePage(BaseAppPage):
         log_setup = LogSetup()
         self.logger = log_setup.logger
         try:
-            self.logger.info("Initializing FavoritePage.")
             wait = WebDriverWait(self._driver, 10)
             self.names = wait.until(EC.presence_of_all_elements_located((By.XPATH, self.ITEMS_NAME_LINK_LOC)))
         except Exception as e:
@@ -49,7 +48,6 @@ class FavoritePage(BaseAppPage):
     def get_item_name(self, index):
         """Retrieve the name of the item based on its index."""
         try:
-            self.logger.info(f"Getting item name for index {index}.")
             return self.names[index - 1]
         except Exception as e:
             self.logger.error(f"Error getting item name for index {index}: {e}")
@@ -58,7 +56,6 @@ class FavoritePage(BaseAppPage):
     def click_edit_button(self, index):
         """Click the edit button for the item based on its index."""
         try:
-            self.logger.info(f"Clicking edit button for index {index}.")
             wait = WebDriverWait(self._driver, 10)
             edit_button = wait.until(EC.element_to_be_clickable((By.XPATH, self.EDIT_ITEM_BUTTON_LOC + f"{index}")))
             edit_button.click()
@@ -70,7 +67,6 @@ class FavoritePage(BaseAppPage):
     def get_item_cards(self):
         """Retrieve all item cards from the favorite list."""
         try:
-            self.logger.info("Getting all item cards.")
             wait = WebDriverWait(self._driver, 10)
             return wait.until(EC.presence_of_all_elements_located((By.XPATH, self.ITEMS_CARD_LOC)))
         except Exception as e:
@@ -80,7 +76,6 @@ class FavoritePage(BaseAppPage):
     def empty_list_message(self):
         """Retrieve the message displayed when the favorite list is empty."""
         try:
-            self.logger.info("Getting empty list message.")
             wait = WebDriverWait(self._driver, 10)
             return wait.until(EC.visibility_of_element_located((By.XPATH, self.EMPTY_LIST_MESSAGE_LOC)))
         except Exception as e:
@@ -90,7 +85,6 @@ class FavoritePage(BaseAppPage):
     def get_item_final_price(self, index):
         """Retrieve the final price of the item based on its index."""
         try:
-            self.logger.info(f"Getting final price for item at index {index}.")
             return self._driver.find_element(By.XPATH, self.get_final_price_item_locator(index))
         except Exception as e:
             self.logger.error(f"Error getting final price for item at index {index}: {e}")
@@ -99,7 +93,6 @@ class FavoritePage(BaseAppPage):
     def get_item_size(self, index):
         """Retrieve the size of the item based on its index."""
         try:
-            self.logger.info(f"Getting size for item at index {index}.")
             return self._driver.find_element(By.XPATH, self.get_item_size_locator(index))
         except Exception as e:
             self.logger.error(f"Error getting size for item at index {index}: {e}")
@@ -108,7 +101,6 @@ class FavoritePage(BaseAppPage):
     def get_item_color(self, index):
         """Retrieve the color of the item based on its index."""
         try:
-            self.logger.info(f"Getting color for item at index {index}.")
             return self._driver.find_element(By.XPATH, self.get_item_color_locator(index))
         except Exception as e:
             self.logger.error(f"Error getting color for item at index {index}: {e}")
@@ -117,10 +109,8 @@ class FavoritePage(BaseAppPage):
     def click_remove_button(self, index):
         """Click the remove button for the item based on its index."""
         try:
-            self.logger.info(f"Clicking remove button for item at index {index}.")
             remove_button = self._driver.find_element(By.XPATH, self.get_item_remove_button_locator(index))
             remove_button.click()
-            self.logger.info(f"Clicked remove button for item at index {index}.")
         except Exception as e:
             self.logger.error(f"Error clicking remove button for item at index {index}: {e}")
             raise
@@ -128,12 +118,10 @@ class FavoritePage(BaseAppPage):
     def get_item_details(self, index):
         """Get the details of the item including name, price, and color based on its index."""
         try:
-            self.logger.info(f"Getting details for item at index {index}.")
             name = self.get_item_name(index).text
             color = self.get_item_color(index).text
             price = self.get_item_final_price(index).text
             item = Item(name, price, color)
-            self.logger.info(f"Item details: Name={name}, Price={price}, Color={color}")
             return item
         except Exception as e:
             self.logger.error(f"Error getting item details for index {index}: {e}")
@@ -142,9 +130,7 @@ class FavoritePage(BaseAppPage):
     def remove_item(self, index):
         """Remove the item from the favorite list based on its index."""
         try:
-            self.logger.info(f"Removing item at index {index}.")
             self.click_remove_button(index)
-            self.logger.info(f"Removed item at index {index}.")
         except Exception as e:
             self.logger.error(f"Error removing item at index {index}: {e}")
             raise
