@@ -12,6 +12,13 @@ from week10.finalproject.logic.enums.sports import Sports
 class TestHomePage(unittest.TestCase):
 
     def setUp(self):
+        """
+        setup for home page tests
+        initialize browser
+        initialize page components
+        login with valid email and password
+        :return:
+        """
         # Instantiate the logger
         log_setup = LogSetup()
         self.logger = log_setup.logger
@@ -32,6 +39,13 @@ class TestHomePage(unittest.TestCase):
         self.driver.quit()
 
     def test_search_item_by_name(self):
+        """
+        search item by name
+        get name from config file and send it
+        to search function
+        validate item exist in result list
+        :return:
+        """
         # Arrange
         self.logger.info("Starting test_search_item_by_name.")
 
@@ -50,6 +64,11 @@ class TestHomePage(unittest.TestCase):
         self.assertTrue(self.app_page.get_search_results(self.config["search_text_input"]))
 
     def test_search_by_category(self):
+        """
+        search item by category
+        hover over category name
+        pick category
+        """
         # Arrange
         self.logger.info("Starting test_search_by_category.")
         self.navbar.hover_over_outer_category(OuterCategory.SPORTS)

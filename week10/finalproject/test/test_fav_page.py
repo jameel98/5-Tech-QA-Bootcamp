@@ -12,6 +12,14 @@ from week10.finalproject.infra.logger_setup import LogSetup  # Import the LogSet
 class TestFavPage(unittest.TestCase):
 
     def setUp(self):
+        """
+        setup for favorite page tests
+        initialize browser
+        initialize page components
+        login with valid email and password
+        search for item by his name
+        :return:
+        """
         # Instantiate the logger
         log_setup = LogSetup()
         self.logger = log_setup.logger
@@ -47,6 +55,13 @@ class TestFavPage(unittest.TestCase):
         self.driver.quit()
 
     def test_add_item_to_favorite_page(self):
+        """
+        test add item to favourite page
+        click on add item to favorite page
+        navigate to favorite page
+        validates the item is added
+        :return:
+        """
         # Arrange
         self.logger.info("Starting test_add_item_to_favorite_page.")
 
@@ -69,6 +84,14 @@ class TestFavPage(unittest.TestCase):
         self.assertEqual(item._final_price, item2._final_price)
 
     def test_remove_item_from_favorite_page(self):
+        """
+        test remove item from favourite page
+        click on add item to favorite page
+        navigate to favorite page
+        remove the item
+        validate list is empty
+        :return:
+       """
         # Arrange
         self.logger.info("Starting test_remove_item_from_favorite_page.")
 

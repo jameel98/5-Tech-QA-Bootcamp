@@ -10,6 +10,11 @@ from week10.finalproject.logic.pages.login_page import Login
 class TestLogin(unittest.TestCase):
 
     def setUp(self):
+        """
+        setup initialize browser data
+        initialize pages before tests run
+        :return:
+        """
         # Instantiate the logger
         log_setup = LogSetup()
         self.logger = log_setup.logger
@@ -30,6 +35,13 @@ class TestLogin(unittest.TestCase):
         self.driver.quit()
 
     def test_login_successfully(self):
+        """
+        login successful with valid email and password
+        click login in navbar
+        popup appear so put input and click login
+        wait to popup disappear and validate username appears
+        :return:
+        """
         # Arrange
         self.logger.info("test login successfully starts.")
         self.login_page.fill_email_input(self.config["email"])
@@ -43,6 +55,13 @@ class TestLogin(unittest.TestCase):
         self.assertIsNotNone(self.navbar.get_avatar())
 
     def test_login_unsuccessfully(self):
+        """
+        login unsuccessful with invalid password
+        click login in navbar
+        popup appear so put input and click login
+        validate error message "invalid email or password" appears
+        :return:
+        """
         # Arrange
         self.logger.info("login unsuccessfully started.")
         self.login_page.fill_email_input(self.config["email"])

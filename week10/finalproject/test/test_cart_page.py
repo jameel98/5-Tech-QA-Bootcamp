@@ -9,9 +9,17 @@ from week10.finalproject.logic.pages.item_page import ItemPage
 from week10.finalproject.logic.pages.login_page import Login
 from week10.finalproject.infra.logger_setup import LogSetup
 
+
 class TestCartPage(unittest.TestCase):
 
     def setUp(self):
+        """
+        setup for cart tests initialize browser
+        initialize page components
+        login with valid email and password
+        search for item by his name
+        :return:
+        """
         # Instantiate the logger
         log_setup = LogSetup()
         self.logger = log_setup.logger
@@ -49,6 +57,12 @@ class TestCartPage(unittest.TestCase):
         self.driver.quit()
 
     def test_add_item_to_cart_page(self):
+        """
+        test add item to cart page it save item details in item object
+        then click on add item to cart and navigate to cart page
+        validates the item is added
+        :return:
+        """
         # Arrange
         self.logger.info("Starting test_add_item_to_cart_page.")
         # Save item details
@@ -68,6 +82,13 @@ class TestCartPage(unittest.TestCase):
         self.assertEqual(item._final_price, item2._final_price)
 
     def test_add_item_to_cart_without_size(self):
+        """
+        negative test add item to cart page without choosing its size
+        it save item details in item object
+        then click on add item to cart
+        validates the missing size message displayed
+        :return:
+        """
         # Arrange
         self.logger.info("Starting test_add_item_to_cart_without_size.")
 
@@ -82,6 +103,13 @@ class TestCartPage(unittest.TestCase):
         self.assertEqual(self.item_page.get_size_error_message().text, Messages.SIZE_ERROR)
 
     def test_add_item_to_cart_without_color(self):
+        """
+        negative test add item to cart page without choosing its size
+        it save item details in item object
+        then click on add item to cart
+        validates the missing color message displayed
+        :return:
+        """
         # Arrange
         self.logger.info("Starting test_add_item_to_cart_without_color.")
 
@@ -96,6 +124,15 @@ class TestCartPage(unittest.TestCase):
         self.assertEqual(self.item_page.get_color_error_message().text, Messages.COLOR_ERROR)
 
     def test_remove_item_from_cart_page(self):
+        """
+        test remove item from cart page
+        it save item details in item object
+        then click on add item to cart
+        navigate to cart page
+        remove the item
+        validates no items in cart page
+        :return:
+        """
         # Arrange
         self.logger.info("Starting test_remove_item_from_cart_page.")
         # Save item details
@@ -112,4 +149,3 @@ class TestCartPage(unittest.TestCase):
 
         # Assert
         self.assertEqual(self.cart_page.empty_list_message().text, Messages.EMPTY_CART_PAGE)
-

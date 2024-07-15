@@ -1,4 +1,7 @@
-class OuterCategory:
+from enum import Enum
+
+
+class OuterCategory(Enum):
     SPORTS = "SPORTS"
     HOME = "HOME"
     BEAUTY = "BEAUTY"
