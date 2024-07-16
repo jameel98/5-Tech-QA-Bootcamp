@@ -100,7 +100,7 @@ class TestCartPage(unittest.TestCase):
         self.item_page.click_add_to_cart_list()
 
         # Assert
-        self.assertEqual(self.item_page.get_size_error_message().text, Messages.SIZE_ERROR)
+        self.assertEqual(self.item_page.get_size_error_message().text, Messages.SIZE_ERROR.value)
 
     def test_add_item_to_cart_without_color(self):
         """
@@ -121,7 +121,7 @@ class TestCartPage(unittest.TestCase):
         self.item_page.click_add_to_cart_list()
 
         # Assert
-        self.assertEqual(self.item_page.get_color_error_message().text, Messages.COLOR_ERROR)
+        self.assertEqual(self.item_page.get_color_error_message().text, Messages.COLOR_ERROR.value)
 
     def test_remove_item_from_cart_page(self):
         """
@@ -148,4 +148,4 @@ class TestCartPage(unittest.TestCase):
         self.cart_page.remove_item(self.config["index"])
 
         # Assert
-        self.assertEqual(self.cart_page.empty_list_message().text, Messages.EMPTY_CART_PAGE)
+        self.assertEqual(Messages.EMPTY_CART_PAGE.value, self.cart_page.empty_list_message().text)

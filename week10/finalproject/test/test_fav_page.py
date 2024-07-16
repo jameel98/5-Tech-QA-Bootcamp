@@ -6,7 +6,7 @@ from week10.finalproject.logic.pages.base_app_page import BaseAppPage
 from week10.finalproject.logic.pages.favorite_page import FavoritePage
 from week10.finalproject.logic.pages.item_page import ItemPage
 from week10.finalproject.logic.pages.login_page import Login
-from week10.finalproject.infra.logger_setup import LogSetup  # Import the LogSetup class
+from week10.finalproject.infra.logger_setup import LogSetup
 
 
 class TestFavPage(unittest.TestCase):
