@@ -75,7 +75,7 @@ class TestCartPage(unittest.TestCase):
         self.cart_pop.click_cart_button()
         self.cart_page = CartPage(self.driver)
         # Get item details from the cart page
-        item2 = self.cart_page.get_item_details(1)
+        item2 = self.cart_page.get_item_details(self.config["index"])
 
         # Assert
         self.assertEqual(item._name, item2._name)
@@ -145,7 +145,7 @@ class TestCartPage(unittest.TestCase):
         self.cart_page = CartPage(self.driver)
 
         # Act
-        self.cart_page.remove_item(1)
+        self.cart_page.remove_item(self.config["index"])
 
         # Assert
         self.assertEqual(self.cart_page.empty_list_message().text, Messages.EMPTY_CART_PAGE)

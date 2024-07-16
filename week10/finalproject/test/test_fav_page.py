@@ -77,7 +77,7 @@ class TestFavPage(unittest.TestCase):
         self.fav_page = FavoritePage(self.driver)
 
         # Get item details from the favorite page
-        item2 = self.fav_page.get_item_details(1)
+        item2 = self.fav_page.get_item_details(self.config["index"])
 
         # Assert
         self.assertEqual(item._name, item2._name)
@@ -103,7 +103,7 @@ class TestFavPage(unittest.TestCase):
         self.fav_page = FavoritePage(self.driver)
 
         # Act
-        self.fav_page.remove_item(1)
+        self.fav_page.remove_item(self.config["index"])
 
         # Assert
         self.assertEqual(self.fav_page.empty_list_message().text, Messages.EMPTY_FAV_PAGE)
