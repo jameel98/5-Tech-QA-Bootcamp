@@ -8,5 +8,11 @@ class APIWrapper:
         self._request = None
         self.config = ConfigProvider.load_from_file('../config.json')
 
-    def get_request(self, url, body=None):
-        return requests.get(url, json=body)
+    @staticmethod
+    def get_request(url, body=None):
+        return requests.get(url, json=body).json()
+
+    @staticmethod
+    def post_request(url, body=None):
+        return requests.post(url, json=body).json()
+
