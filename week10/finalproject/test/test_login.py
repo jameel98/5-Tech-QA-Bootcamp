@@ -72,4 +72,4 @@ class TestLogin(unittest.TestCase):
         self.login_page.click_login()
 
         # Assert
-        self.assertEqual(self.login_page.get_error_message().text, Messages.EMAIL_ERROR)
+        self.assertEqual(self.login_page.get_error_message().text, Messages.EMAIL_ERROR.value)
