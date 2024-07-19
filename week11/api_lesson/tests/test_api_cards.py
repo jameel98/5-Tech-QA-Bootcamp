@@ -1,11 +1,9 @@
 import unittest
 
 import parameterized as parameterized
-import xmlrunner as xmlrunner
-from xmlrunner import XMLTestRunner
 
-from week11.api_lesson.infra.api_wrapper import APIWrapper
-from week11.api_lesson.logic.api.api_deck_cards import APICards
+from week11.api_project.infra.api_wrapper import APIWrapper
+from week11.api_project.logic.api.api_profile import APICards
 
 
 class TestAPIHarryPotter(unittest.TestCase):
@@ -20,6 +18,7 @@ class TestAPIHarryPotter(unittest.TestCase):
         response = self.api_cards.shuffle_new_deck(1)
         # Assert
         self.assertIn('deck_id', response)
+        self.assertEqual(type(int), type(response['deck_id']))
         self.assertTrue(response['shuffled'])
         self.assertEqual(response['remaining'], 52)
 
@@ -49,19 +48,19 @@ class TestAPIHarryPotter(unittest.TestCase):
         self.assertEqual(reshuffle_response['remaining'], 52)
 
 
-    # @parameterized.expand([
-    #     (1, 51),
-    #     (2, 50),
-    #     (5, 47),
-    # ])
-    # def test_draw_cards_parameterized(self, count, expected_remaining):
-    #     # Arrange
-    #     response = self.api_cards.shuffle_new_deck(1)
-    #     deck_id = response['deck_id']
-    #
-    #     # Act
-    #     draw_response = self.api_cards.draw_card(deck_id, count)
-    #
-    #     # Assert
-    #     self.assertEqual(draw_response['remaining'], expected_remaining)
-    #     self.assertEqual(len(draw_response['cards']), count)
+    @parameterized.expand([
+        (1, 51),
+        (2, 50),
+        (5, 47),
+    ])
+    def test_draw_cards_parameterized(self, count, expected_remaining):
+        # Arrange
+        response = self.api_cards.shuffle_new_deck(1)
+        deck_id = response['deck_id']
+
+        # Act
+        draw_response = self.api_cards.draw_card(deck_id, count)
+
+        # Assert
+        self.assertEqual(draw_response['remaining'], expected_remaining)
+        self.assertEqual(len(draw_response['cards']), count)

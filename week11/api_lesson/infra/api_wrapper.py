@@ -1,6 +1,6 @@
 import requests
 
-from week11.api_lesson.infra.config_provider import ConfigProvider
+from week11.api_project.infra.config_provider import ConfigProvider
 
 
 class APIWrapper:
@@ -10,7 +10,7 @@ class APIWrapper:
 
     @staticmethod
     def get_request(url, body=None):
-        return requests.get(url, json=body).json()
+        return requests.get(url, json=body).json() # remove json
 
     @staticmethod
     def post_request(url, body=None):
