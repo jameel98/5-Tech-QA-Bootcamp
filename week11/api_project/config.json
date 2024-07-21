@@ -5,23 +5,44 @@
     "x-rapidapi-key": "68529391bamsha7d5ac95c0ec037p14ec63jsn326d3a96aa88"
   },
   "username": "rawadabu",
-  "firstName":"Rawad",
-  "lastName":"AbuSaleh",
+  "firstName": "Rawad",
+  "lastName": "AbuSaleh",
   "people_name": "sagi",
-
   "profile_url": "https://www.linkedin.com/in/tzahi-anidgar-b8947b255/",
-  "profile_username":"tzahi-anidgar-b8947b255",
-  "profile_firstName":"Tzahi",
-  "profile_lastName":"Anidgar",
-
+  "profile_username": "tzahi-anidgar-b8947b255",
+  "profile_firstName": "Tzahi",
+  "profile_lastName": "Anidgar",
   "company_name": "NVIDIA",
-  "company_header": {
-    "Content-Type": "application/json" ,
-	"x-rapidapi-host": "linkedin-data-api.p.rapidapi.com",
-	"x-rapidapi-key": "68529391bamsha7d5ac95c0ec037p14ec63jsn326d3a96aa88"
+  "post_header": {
+    "Content-Type": "application/json",
+    "x-rapidapi-host": "linkedin-data-api.p.rapidapi.com",
+    "x-rapidapi-key": "68529391bamsha7d5ac95c0ec037p14ec63jsn326d3a96aa88"
   },
   "company_data": {
-    "companyIds":[5383240,2382910],
-    "page":1
+    "companyIds": 1441,
+    "page": 1
+  },
+  "job_params": {
+    "keywords": "golang",
+    "locationId": "92000000",
+    "datePosted": "anyTime",
+    "sort": "mostRelevant"
+  },
+  "job_id": "3820081336",
+  "post_data": {
+    "keyword": "golang",
+    "sortBy": "date_posted",
+    "datePosted": "past-24h",
+    "start": "0"
+  },
+  "post_hashtag_data": {
+    "hashtag": "golang",
+    "sortBy": "REV_CHRON",
+    "start": "0",
+    "paginationToken": ""
+  },
+  "company_employee_count": {
+    "companyId": "1441",
+    "locations": []
   }
 }

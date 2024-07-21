@@ -22,16 +22,20 @@ class TestAPIProfile(unittest.TestCase):
         :return:
         """
         # Arrange
+        profile_data = {
+            "username": "rawadabu",
+            "firstName": "Rawad",
+            "lastName": "AbuSaleh",
+        }
         # Act
-        response = self._api_profile.get_profile_data(self._config["username"])
+        response = self._api_profile.get_profile_data(profile_data["username"])
         # for presentation
         print(response.json()["firstName"])
-        print(response.json())
 
         # Assert
-        self.assertEqual(response.json()["username"], self._config["username"])
-        self.assertEqual(response.json()["firstName"], self._config["firstName"])
-        self.assertEqual(response.json()["lastName"], self._config["lastName"])
+        self.assertEqual(response.json()["username"], profile_data["username"])
+        self.assertEqual(response.json()["firstName"], profile_data["firstName"])
+        self.assertEqual(response.json()["lastName"], profile_data["lastName"])
 
     def test_profile_by_url(self):
         """
@@ -40,20 +44,26 @@ class TestAPIProfile(unittest.TestCase):
         :return:
         """
         # Arrange
+        profile_data = {
+            "profile_url": "https://www.linkedin.com/in/tzahi-anidgar-b8947b255/",
+            "username": "tzahi-anidgar-b8947b255",
+            "firstName": "Tzahi",
+            "lastName": "Anidgar",
+        }
         # Act
-        response = self._api_profile.get_profile_data_by_url(self._config["profile_url"])
+        response = self._api_profile.get_profile_data_by_url(profile_data["profile_url"])
         # for presentation
         print(response.json()["firstName"])
         # Assert
-        self.assertEqual(response.json()["username"], self._config["profile_username"])
-        self.assertEqual(response.json()["firstName"], self._config["profile_firstName"])
-        self.assertEqual(response.json()["lastName"], self._config["profile_lastName"])
+        self.assertEqual(response.json()["username"], profile_data["username"])
+        self.assertEqual(response.json()["firstName"], profile_data["firstName"])
+        self.assertEqual(response.json()["lastName"], profile_data["lastName"])
 
-    def test_search_people_bt_name(self):
+    def test_search_people_by_name(self):
         # arrange
+        username = "Sagi"
         # act
-        response = self._api_profile.search_people_by_name(self._config["people_name"])
+        items = self._api_profile.search_people_by_name(username)
 
-        print(response.json()["items"]["0"]["fullName"])
         # assert
-        self.assertIn(response.json()["items"]["0"]["fullName"], self._config["people_name"])
+        self.assertTrue(self._api_profile.check_if_name_in_search_results(username, items), f"The name '{username}' was not found in the items.")

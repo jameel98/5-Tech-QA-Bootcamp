@@ -33,5 +33,5 @@ class TestAPICompany(unittest.TestCase):
         # for presentation
         response_data = response.json()
         print(response_data)
-
-        self.assertIsNotNone(response_data["data"]["items"])
+        self.assertEqual(response.status_code, 200)
+        self.assertIsNotNone(response_data["company"]["name"])

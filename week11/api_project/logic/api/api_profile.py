@@ -30,5 +30,41 @@ class APIProfile:
         :param username: name to search
         :return: data of search result
         """
-        return self._request.get_request(f"{self.config['base_url']}/search-people?keywords={username}&start=0&geo=103644278%2C101165590'",
+        response = self._request.get_request(f"{self.config['base_url']}/search-people?keywords={username}&start=0&geo=103644278%2C101165590'",
                                          self.config["headers"])
+
+        response_data = response.json()
+        items = response_data.get("data", {}).get("items", [])
+        return items
+
+    @staticmethod
+    def check_if_name_in_search_results(name, items):
+        name_found = False
+        for item in items:
+            print(item)
+            if name.lower() in item["fullName"].lower():
+                name_found = True
+            else:
+                name_found = False
+                print("Item fullName is not:", item["fullName"])  # Print each item for clarity
+                break
+        return name_found
+
+
+#
+# @parameterized.expand([
+#         ["1651463042331230208", "1651463042331230208"],
+#         ["1814982968110194714", "1814982968110194714"]
+#     ])
+#     def test_get_tweet_details(self, tweet_id, expected_tweet_id):
+#         """
+#         Tests retrieving tweet details from the API and validating the response.
+#         """
+#         tweet_details = APITweetDetails(self.api_request)
+#         response = tweet_details.get_tweet_details(tweet_id)
+#         user_body = response.json()
+#         user = user_body["user"]
+#
+#         self.assertTrue(response.ok)
+#         self.assertEqual(expected_tweet_id, user_body['tweet_id'])
+#         self.assertEqual(self.config["my_username"], user['username'])
