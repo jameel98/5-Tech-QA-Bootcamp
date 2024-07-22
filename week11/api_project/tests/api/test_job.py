@@ -24,7 +24,5 @@ class TestAPISearch(unittest.TestCase):
         # Arrange
         # Act
         response = self._api_job.get_job_details(self._config["job_id"])
-
         # Assert
-
         self.assertEqual(self._config["job_id"], response.json()["data"]["id"])

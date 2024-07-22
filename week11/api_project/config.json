@@ -2,7 +2,7 @@
   "base_url": "https://linkedin-data-api.p.rapidapi.com",
   "headers": {
     "x-rapidapi-host": "linkedin-data-api.p.rapidapi.com",
-    "x-rapidapi-key": "68529391bamsha7d5ac95c0ec037p14ec63jsn326d3a96aa88"
+    "x-rapidapi-key": "74c7bb33f7msh7e0246a5c018f60p1b61eejsnd594badab89f"
   },
   "username": "rawadabu",
   "firstName": "Rawad",
@@ -12,11 +12,11 @@
   "profile_username": "tzahi-anidgar-b8947b255",
   "profile_firstName": "Tzahi",
   "profile_lastName": "Anidgar",
-  "company_name": "NVIDIA",
+  "company_name": "google",
   "post_header": {
     "Content-Type": "application/json",
     "x-rapidapi-host": "linkedin-data-api.p.rapidapi.com",
-    "x-rapidapi-key": "68529391bamsha7d5ac95c0ec037p14ec63jsn326d3a96aa88"
+    "x-rapidapi-key": "74c7bb33f7msh7e0246a5c018f60p1b61eejsnd594badab89f"
   },
   "company_data": {
     "companyIds": 1441,

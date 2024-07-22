@@ -34,4 +34,11 @@ class TestAPICompany(unittest.TestCase):
         response_data = response.json()
         print(response_data)
         self.assertEqual(response.status_code, 200)
-        self.assertIsNotNone(response_data["company"]["name"])
+        self.assertIsNotNone(response_data["data"]["total"])
+
+    def test_get_company_employees_count(self):
+        # Arrange
+        # act
+        response = self._api_company.get_company_employees_count()
+        # assert
+        self.assertEqual(response.status_code, 200)

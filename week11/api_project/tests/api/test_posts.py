@@ -23,16 +23,8 @@ class TestAPIPosts(unittest.TestCase):
         items = self._api_posts.search_post_by_keywords()
 
         # Assert
-        keyword_found = False
-        for item in items:
-            if keyword.lower() in item["text"].lower():
-                keyword_found = True
-            else:
-                keyword_found = False
-                print("Item text without keyword:", item["text"])  # Print each item for clarity
-                break
-
-        self.assertTrue(keyword_found, f"The keyword '{keyword}' was not found in the posts.")
+        self.assertTrue(self._api_posts.check_if_posts_include_word(keyword, items),
+                        f"The keyword '{keyword}' was not found in the posts.")
 
     def test_search_post_by_hashtag(self):
         """
@@ -41,8 +33,8 @@ class TestAPIPosts(unittest.TestCase):
         """
         # Arrange
         hashtag = "#" + self._config["post_hashtag_data"]["hashtag"]
-
         # Act
         items = self._api_posts.search_posts_by_hashtag()
         # Assert
-        self.assertTrue(self._api_posts.check_if_posts_include_word(hashtag, items), f"The hashtag '{hashtag}' was not found in the posts.")
+        self.assertTrue(self._api_posts.check_if_posts_include_word(hashtag, items),
+                        f"The hashtag '{hashtag}' was not found in the posts.")

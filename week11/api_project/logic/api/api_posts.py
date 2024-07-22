@@ -31,6 +31,6 @@ class APIPost:
                 word_found = True
             else:
                 word_found = False
-                print("Post text without keyword:", post["text"])  # Print each item for clarity
+                print("Post url without keyword:", post["postUrl"])  # Print each item for clarity
                 break
         return word_found

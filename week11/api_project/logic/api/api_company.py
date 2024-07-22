@@ -18,7 +18,7 @@ class APICompany:
 
     def get_company_jobs(self, company_name):
         """
-        this functions sends a postrequest for the api company jobs end points
+        this functions sends a post request for the api company jobs end points
         :param company_name: input is the company name
         :return: data of jobs in the company
         """

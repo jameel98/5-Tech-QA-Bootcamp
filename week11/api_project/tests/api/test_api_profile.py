@@ -29,10 +29,12 @@ class TestAPIProfile(unittest.TestCase):
         }
         # Act
         response = self._api_profile.get_profile_data(profile_data["username"])
+
         # for presentation
         print(response.json()["firstName"])
 
         # Assert
+        self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json()["username"], profile_data["username"])
         self.assertEqual(response.json()["firstName"], profile_data["firstName"])
         self.assertEqual(response.json()["lastName"], profile_data["lastName"])
@@ -55,6 +57,7 @@ class TestAPIProfile(unittest.TestCase):
         # for presentation
         print(response.json()["firstName"])
         # Assert
+        self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json()["username"], profile_data["username"])
         self.assertEqual(response.json()["firstName"], profile_data["firstName"])
         self.assertEqual(response.json()["lastName"], profile_data["lastName"])
@@ -64,6 +67,6 @@ class TestAPIProfile(unittest.TestCase):
         username = "Sagi"
         # act
         items = self._api_profile.search_people_by_name(username)
-
         # assert
-        self.assertTrue(self._api_profile.check_if_name_in_search_results(username, items), f"The name '{username}' was not found in the items.")
+        self.assertTrue(self._api_profile.check_if_name_in_search_results(username, items),
+                        f"The name '{username}' was not found in the items.")
