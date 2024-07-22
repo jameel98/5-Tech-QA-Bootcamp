@@ -26,6 +26,10 @@ class TestAPICompany(unittest.TestCase):
         self.assertEqual(response.data["data"]["name"].lower(), self._config["company_name"])
 
     def test_company_jobs(self):
+        """
+        get company jobs by company name and company id
+        :return:
+        """
         # Arrange
         # Act
         response = self._api_company.get_company_jobs(self._config["company_name"])
@@ -35,6 +39,9 @@ class TestAPICompany(unittest.TestCase):
         self.assertIsNotNone(response.data["data"]["items"])
 
     def test_get_company_employees_count(self):
+        """
+        get the company jobs number
+        """
         # Arrange
         # act
         response = self._api_company.get_company_employees_count()

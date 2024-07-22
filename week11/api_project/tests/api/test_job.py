@@ -12,6 +12,10 @@ class TestAPISearch(unittest.TestCase):
         self._config = self._api_job.config
 
     def test_search_job(self):
+        """
+        search for most relevant jobs according to its keyword
+        :return:
+        """
         # Arrange
         # Act
         response = self._api_job.search_job(self._config["job_params"]["keywords"], self._config["job_params"]["locationId"],
@@ -21,6 +25,10 @@ class TestAPISearch(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_job_details(self):
+        """
+        get job details by job ID
+        :return:
+        """
         # Arrange
         # Act
         response = self._api_job.get_job_details(self._config["job_id"])

@@ -63,6 +63,11 @@ class TestAPIProfile(unittest.TestCase):
         self.assertEqual(response.data["lastName"], profile_data["lastName"])
 
     def test_search_people_by_name(self):
+        """
+        search people by name check if the api response containse
+        profiles for people u search
+        :return:
+        """
         # arrange
         username = "Sagi"
         # act

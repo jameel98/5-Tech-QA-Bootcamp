@@ -38,6 +38,12 @@ class APIProfile:
 
     @staticmethod
     def check_if_name_in_search_results(name, items):
+        """
+        check if the name in the results of the api response
+        :param name:
+        :param items:
+        :return:
+        """
         name_found = False
         for item in items:
             print(item)

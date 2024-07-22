@@ -26,12 +26,21 @@ class APICompany:
                                           self.config["post_header"], self.config["company_data"])
 
     def get_company_employees_count(self):
+        """
+        get the company employees number by company id
+        :return:
+        """
         return self._request.post_request(f"{self.config['base_url']}/get-company-employees-count",
                                           self.config["post_header"], self.config["company_employee_count"])
 
     @staticmethod
     def check_if_jobs_of_the_company(company_name, jobs):
-
+        """
+        check if company name in job company
+        :param company_name:
+        :param jobs:
+        :return:
+        """
         company_name_found = False
         for job in jobs:
             print(job)
