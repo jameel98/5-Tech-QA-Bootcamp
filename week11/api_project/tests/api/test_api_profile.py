@@ -31,13 +31,13 @@ class TestAPIProfile(unittest.TestCase):
         response = self._api_profile.get_profile_data(profile_data["username"])
 
         # for presentation
-        print(response.json()["firstName"])
+        print(response.data["firstName"])
 
         # Assert
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json()["username"], profile_data["username"])
-        self.assertEqual(response.json()["firstName"], profile_data["firstName"])
-        self.assertEqual(response.json()["lastName"], profile_data["lastName"])
+        self.assertEqual(response.data["username"], profile_data["username"])
+        self.assertEqual(response.data["firstName"], profile_data["firstName"])
+        self.assertEqual(response.data["lastName"], profile_data["lastName"])
 
     def test_profile_by_url(self):
         """
@@ -55,12 +55,12 @@ class TestAPIProfile(unittest.TestCase):
         # Act
         response = self._api_profile.get_profile_data_by_url(profile_data["profile_url"])
         # for presentation
-        print(response.json()["firstName"])
+        print(response.data["firstName"])
         # Assert
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json()["username"], profile_data["username"])
-        self.assertEqual(response.json()["firstName"], profile_data["firstName"])
-        self.assertEqual(response.json()["lastName"], profile_data["lastName"])
+        self.assertEqual(response.data["username"], profile_data["username"])
+        self.assertEqual(response.data["firstName"], profile_data["firstName"])
+        self.assertEqual(response.data["lastName"], profile_data["lastName"])
 
     def test_search_people_by_name(self):
         # arrange

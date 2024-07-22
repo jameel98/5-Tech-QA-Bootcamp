@@ -33,8 +33,7 @@ class APIProfile:
         response = self._request.get_request(f"{self.config['base_url']}/search-people?keywords={username}&start=0&geo=103644278%2C101165590'",
                                          self.config["headers"])
 
-        response_data = response.json()
-        items = response_data.get("data", {}).get("items", [])
+        items = response.data.get("data", {}).get("items", [])
         return items
 
     @staticmethod

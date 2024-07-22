@@ -10,15 +10,13 @@ class APIPost:
     def search_post_by_keywords(self):
         response = self._request.post_request(f"{self.config['base_url']}/search-posts",
                                               self.config["post_header"], self.config["post_data"])
-        response_data = response.json()
-        items = response_data.get("data", {}).get("items", [])
+        items = response.data.get("data", {}).get("items", [])
         return items
 
     def search_posts_by_hashtag(self):
         response = self._request.post_request(f"{self.config['base_url']}/search-posts-by-hashtag",
                                               self.config["post_header"], self.config["post_hashtag_data"])
-        response_data = response.json()
-        items = response_data.get("data", {}).get("items", [])
+        items = response.data.get("data", {}).get("items", [])
         return items
 
     @staticmethod

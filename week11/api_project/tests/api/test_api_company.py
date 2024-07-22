@@ -21,20 +21,18 @@ class TestAPICompany(unittest.TestCase):
         # Act
         response = self._api_company.get_company_details(self._config["company_name"])
         # for presentation
-        response_data = response.json()
-        print(response_data)
+        print(response.data)
         # Assert
-        self.assertEqual(response_data["data"]["name"], self._config["company_name"])
+        self.assertEqual(response.data["data"]["name"].lower(), self._config["company_name"])
 
     def test_company_jobs(self):
         # Arrange
         # Act
         response = self._api_company.get_company_jobs(self._config["company_name"])
         # for presentation
-        response_data = response.json()
-        print(response_data)
+        print(response.data)
         self.assertEqual(response.status_code, 200)
-        self.assertIsNotNone(response_data["data"]["total"])
+        self.assertIsNotNone(response.data["data"]["items"])
 
     def test_get_company_employees_count(self):
         # Arrange

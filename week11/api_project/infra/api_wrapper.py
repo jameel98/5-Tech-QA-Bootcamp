@@ -1,6 +1,7 @@
 import requests
 
 from week11.api_project.infra.config_provider import ConfigProvider
+from week11.api_project.infra.response_wrapper import ResponseWrapper
 
 
 class APIWrapper:
@@ -10,8 +11,10 @@ class APIWrapper:
 
     @staticmethod
     def get_request(url, header, body=None):
-        return requests.get(url, headers=header, json=body)
+        result = requests.get(url, headers=header, json=body)
+        return ResponseWrapper(ok=result.ok, status_code=result.status_code, data=result.json())
 
     @staticmethod
     def post_request(url, header, body=None):
-        return requests.post(url, headers=header, json=body)
+        result = requests.post(url, headers=header, json=body)
+        return ResponseWrapper(ok=result.ok, status_code=result.status_code, data=result.json())
