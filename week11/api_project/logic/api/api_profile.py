@@ -55,21 +55,3 @@ class APIProfile:
                 break
         return name_found
 
-
-#
-# @parameterized.expand([
-#         ["1651463042331230208", "1651463042331230208"],
-#         ["1814982968110194714", "1814982968110194714"]
-#     ])
-#     def test_get_tweet_details(self, tweet_id, expected_tweet_id):
-#         """
-#         Tests retrieving tweet details from the API and validating the response.
-#         """
-#         tweet_details = APITweetDetails(self.api_request)
-#         response = tweet_details.get_tweet_details(tweet_id)
-#         user_body = response.json()
-#         user = user_body["user"]
-#
-#         self.assertTrue(response.ok)
-#         self.assertEqual(expected_tweet_id, user_body['tweet_id'])
-#         self.assertEqual(self.config["my_username"], user['username'])
