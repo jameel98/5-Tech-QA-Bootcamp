@@ -2,6 +2,7 @@ import unittest
 
 from week11.api_project.infra.api_wrapper import APIWrapper
 from week11.api_project.logic.api.api_job import APIJob
+from week11.api_project.logic.job import Job
 
 
 class TestAPISearch(unittest.TestCase):
@@ -17,9 +18,10 @@ class TestAPISearch(unittest.TestCase):
         :return:
         """
         # Arrange
+        job = Job(self._config["job_params"]["keywords"], self._config["job_params"]["locationId"],
+                  self._config["job_params"]["datePosted"], self._config["job_params"]["sort"])
         # Act
-        response = self._api_job.search_job(self._config["job_params"]["keywords"], self._config["job_params"]["locationId"],
-                                            self._config["job_params"]["datePosted"], self._config["job_params"]["sort"])
+        response = self._api_job.search_job(job)
 
         # Assert
         self.assertEqual(response.status_code, 200)

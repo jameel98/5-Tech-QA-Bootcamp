@@ -7,17 +7,13 @@ class APIJob:
         self._request = request
         self.config = ConfigProvider.load_from_file('../../config.json')
 
-    def search_job(self, keyword, location_id, date_posted, sort):
+    def search_job(self, job):
         """
         search for job by keyword, location, date posted and sort
-        :param keyword:
-        :param location_id:
-        :param date_posted:
-        :param sort:
-        :return:
+        :param job:
         """
-        return self._request.get_request(f"{self.config['base_url']}/search-jobs?keywords={keyword}"
-                                         f"&locationId={location_id}&datePosted={date_posted}&sort={sort}",
+        return self._request.get_request(f"{self.config['base_url']}/search-jobs?keywords={job.keywords}"
+                                         f"&locationId={job.location_id}&datePosted={job.date_posted}&sort={job.sort}",
                                          self.config["headers"])
 
     def get_job_details(self, job_id):

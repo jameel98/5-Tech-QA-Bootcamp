@@ -1,4 +1,4 @@
-# Selenium-Final-Project
+# Selenium-API-Project
 
 ## Intro
 
