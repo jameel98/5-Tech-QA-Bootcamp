@@ -2,6 +2,7 @@ import logging
 import unittest
 
 from week11.api_project.infra.api_wrapper import APIWrapper
+from week11.api_project.infra.logger_setup import LogSetup
 from week11.api_project.logic.api.api_profile import APIProfile
 
 
@@ -15,7 +16,8 @@ class TestAPIProfile(unittest.TestCase):
         api_request = APIWrapper()
         self._api_profile = APIProfile(api_request)
         self._config = self._api_profile.config
-        self.logger = logging.getLogger(__name__)  # Initialize logger for this class
+        log_setup = LogSetup()
+        self.logger = log_setup.logger
 
     def test_profile(self):
         """
@@ -23,7 +25,7 @@ class TestAPIProfile(unittest.TestCase):
         assert we got the correct user profile data
         :return:
         """
-        logging.info(f'test_profile started.')
+        self.logger.info(f'test_profile started.')
         # Arrange
         profile_data = {
             "username": "rawadabu",
@@ -41,7 +43,7 @@ class TestAPIProfile(unittest.TestCase):
         self.assertEqual(response.data["username"], profile_data["username"])
         self.assertEqual(response.data["firstName"], profile_data["firstName"])
         self.assertEqual(response.data["lastName"], profile_data["lastName"])
-        logging.info(f'test_profile ended.')
+        self.logger.info(f'test_profile ended.')
 
     def test_profile_by_url(self):
         """
@@ -49,7 +51,7 @@ class TestAPIProfile(unittest.TestCase):
         assert we got the correct profile data
         :return:
         """
-        logging.info(f'test_profile_by_url started.')
+        self.logger.info(f'test_profile_by_url started.')
         # Arrange
         profile_data = {
             "profile_url": "https://www.linkedin.com/in/tzahi-anidgar-b8947b255/",
@@ -66,7 +68,7 @@ class TestAPIProfile(unittest.TestCase):
         self.assertEqual(response.data["username"], profile_data["username"])
         self.assertEqual(response.data["firstName"], profile_data["firstName"])
         self.assertEqual(response.data["lastName"], profile_data["lastName"])
-        logging.info(f'test_profile_by_url ended.')
+        self.logger.info(f'test_profile_by_url ended.')
 
     def test_search_people_by_name(self):
         """
@@ -74,7 +76,7 @@ class TestAPIProfile(unittest.TestCase):
         profiles for people u search
         :return:
         """
-        logging.info(f'test_search_people_by_name started.')
+        self.logger.info(f'test_search_people_by_name started.')
         # arrange
         username = "Sagi"
         # act
@@ -82,4 +84,4 @@ class TestAPIProfile(unittest.TestCase):
         # assert
         self.assertTrue(self._api_profile.check_if_name_in_search_results(username, items),
                         f"The name '{username}' was not found in the items.")
-        logging.info(f'test_search_people_by_name ended.')
+        self.logger.info(f'test_search_people_by_name ended.')

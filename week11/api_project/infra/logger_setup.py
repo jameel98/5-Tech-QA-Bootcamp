@@ -11,7 +11,7 @@ class LogSetup:
             level=logging.INFO,  # Set the logging level to INFO
             format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
             handlers=[
-                logging.FileHandler("../test_log.log"),  # Log to a file
+                logging.FileHandler("../../test_log.log"),  # Log to a file
                 logging.StreamHandler()  # Log to console
             ]
         )
