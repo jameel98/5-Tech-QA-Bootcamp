@@ -9,6 +9,10 @@ develop automation infrastructure, and implement all kinds of tests. We will use
 
 ## Guidelines
 
+### Run the project
+* To run the project you need python and selenium installed
+* in addition to your IDE, 
+* run the tests in test/api/filename
 ### API
 
 * Actions under tests are performed in the API.
