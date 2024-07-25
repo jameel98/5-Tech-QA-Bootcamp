@@ -1,0 +1,23 @@
+2024-07-23 11:15:43,928 - LogSetup - INFO - test_company_details started.
+2024-07-23 11:15:43,929 - root - INFO - send api get request.
+2024-07-23 11:15:45,205 - LogSetup - INFO - test_company_details ended.
+2024-07-23 13:28:12,656 - LogSetup - INFO - test_profile_by_url started.
+2024-07-23 13:28:12,657 - root - INFO - send api get request.
+2024-07-23 13:28:14,399 - LogSetup - INFO - test_profile_by_url ended.
+2024-07-23 13:29:37,076 - LogSetup - INFO - test_profile started.
+2024-07-23 13:29:37,077 - root - INFO - send api get request.
+2024-07-23 13:29:39,103 - LogSetup - INFO - test_profile ended.
+2024-07-23 13:29:39,150 - LogSetup - INFO - test_profile_by_url started.
+2024-07-23 13:29:39,151 - root - INFO - send api get request.
+2024-07-23 13:29:40,577 - LogSetup - INFO - test_profile_by_url ended.
+2024-07-23 13:29:40,585 - LogSetup - INFO - test_search_people_by_name started.
+2024-07-23 13:29:40,587 - root - INFO - send api get request.
+2024-07-23 13:29:42,214 - LogSetup - INFO - test_search_people_by_name ended.
+2024-07-23 13:30:25,257 - LogSetup - INFO - test_search_post_by_hashtag started.
+2024-07-23 13:30:25,258 - root - INFO - send api post request.
+2024-07-24 11:48:57,509 - LogSetup - INFO - test_search_post_by_hashtag started.
+2024-07-24 11:48:57,510 - root - INFO - send api post request.
+2024-07-24 11:49:26,478 - LogSetup - INFO - test_search_post_by_hashtag started.
+2024-07-24 11:49:26,478 - root - INFO - send api post request.
+2024-07-24 11:55:11,688 - LogSetup - INFO - test_search_post_by_hashtag started.
+2024-07-24 11:55:11,690 - root - INFO - send api post request.

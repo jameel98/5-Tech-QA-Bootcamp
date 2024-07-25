@@ -1,0 +1,495 @@
+2024-07-14 18:00:12,006 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-14 18:00:20,377 - LogSetup - INFO - Initializing page components.
+2024-07-14 18:00:20,381 - LogSetup - INFO - Clicking the sign-in button.
+2024-07-14 18:00:21,556 - LogSetup - INFO - Performing login flow.
+2024-07-14 18:00:22,266 - LogSetup - INFO - Refreshing the page.
+2024-07-14 18:00:23,290 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-14 18:00:26,093 - LogSetup - INFO - Clicking on the searched item.
+2024-07-14 18:00:27,534 - LogSetup - INFO - Starting test_add_item_to_cart_page.
+2024-07-14 18:00:27,534 - LogSetup - INFO - Getting item details.
+2024-07-14 18:00:29,800 - LogSetup - INFO - Adding item to the cart list.
+2024-07-14 18:00:30,032 - LogSetup - INFO - Navigating to the cart page.
+2024-07-14 18:00:32,042 - LogSetup - INFO - Getting item details from the cart page.
+2024-07-14 18:00:32,192 - LogSetup - INFO - Asserting item details.
+2024-07-14 18:00:32,192 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-14 18:00:38,648 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-14 18:00:46,043 - LogSetup - INFO - Initializing page components.
+2024-07-14 18:00:46,044 - LogSetup - INFO - Clicking the sign-in button.
+2024-07-14 18:00:47,236 - LogSetup - INFO - Performing login flow.
+2024-07-14 18:00:48,228 - LogSetup - INFO - Refreshing the page.
+2024-07-14 18:00:49,238 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-14 18:00:51,970 - LogSetup - INFO - Clicking on the searched item.
+2024-07-14 18:00:53,377 - LogSetup - INFO - Starting test_add_item_to_cart_without_color.
+2024-07-14 18:00:53,377 - LogSetup - INFO - Getting item details without color.
+2024-07-14 18:00:55,811 - LogSetup - INFO - Attempting to add item to the cart list without selecting color.
+2024-07-14 18:00:56,021 - LogSetup - INFO - Asserting color error message.
+2024-07-14 18:00:56,140 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-14 18:01:02,596 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-14 18:01:09,713 - LogSetup - INFO - Initializing page components.
+2024-07-14 18:01:09,715 - LogSetup - INFO - Clicking the sign-in button.
+2024-07-14 18:01:10,823 - LogSetup - INFO - Performing login flow.
+2024-07-14 18:01:11,766 - LogSetup - INFO - Refreshing the page.
+2024-07-14 18:01:12,975 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-14 18:01:15,616 - LogSetup - INFO - Clicking on the searched item.
+2024-07-14 18:01:17,228 - LogSetup - INFO - Starting test_add_item_to_cart_without_size.
+2024-07-14 18:01:17,229 - LogSetup - INFO - Getting item details without size.
+2024-07-14 18:01:19,470 - LogSetup - INFO - Attempting to add item to the cart list without selecting size.
+2024-07-14 18:01:19,744 - LogSetup - INFO - Asserting size error message.
+2024-07-14 18:01:19,875 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-14 18:01:26,329 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-14 18:01:32,601 - LogSetup - INFO - Initializing page components.
+2024-07-14 18:01:32,603 - LogSetup - INFO - Clicking the sign-in button.
+2024-07-14 18:01:34,020 - LogSetup - INFO - Performing login flow.
+2024-07-14 18:01:34,965 - LogSetup - INFO - Refreshing the page.
+2024-07-14 18:01:38,126 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-14 18:01:39,801 - LogSetup - INFO - Clicking on the searched item.
+2024-07-14 18:01:41,535 - LogSetup - INFO - Starting test_remove_item_from_cart_page.
+2024-07-14 18:01:41,535 - LogSetup - INFO - Getting item details.
+2024-07-14 18:01:44,137 - LogSetup - INFO - Adding item to the cart list.
+2024-07-14 18:01:44,506 - LogSetup - INFO - Navigating to the cart page.
+2024-07-14 18:01:47,580 - LogSetup - INFO - Removing item from the cart page.
+2024-07-14 18:01:47,983 - LogSetup - INFO - Asserting the cart page is empty.
+2024-07-14 18:01:48,611 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-14 18:28:11,333 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-14 18:28:18,282 - root - INFO - Chrome browser opened.
+2024-07-14 18:28:18,282 - LogSetup - INFO - Initializing page components.
+2024-07-14 18:28:20,299 - LogSetup - INFO - Waiting for email input to be clickable.
+2024-07-14 18:28:20,977 - LogSetup - INFO - Waiting for password input to be clickable.
+2024-07-14 18:28:21,046 - LogSetup - INFO - Waiting for login button to be clickable.
+2024-07-14 18:28:21,123 - LogSetup - INFO - Filling in login details with valid credentials.
+2024-07-14 18:28:21,124 - LogSetup - INFO - Entering email: jameeltesting98@gmail.com
+2024-07-14 18:28:21,548 - LogSetup - INFO - Entering password.
+2024-07-14 18:28:21,813 - LogSetup - INFO - Clicking the login button.
+2024-07-14 18:28:21,813 - LogSetup - INFO - Clicking the login button.
+2024-07-14 18:28:22,106 - LogSetup - INFO - Checking if the avatar is present.
+2024-07-14 18:28:23,425 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-14 18:28:29,923 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-14 18:28:34,696 - root - INFO - Chrome browser opened.
+2024-07-14 18:28:34,697 - LogSetup - INFO - Initializing page components.
+2024-07-14 18:28:37,256 - LogSetup - INFO - Waiting for email input to be clickable.
+2024-07-14 18:28:37,890 - LogSetup - INFO - Waiting for password input to be clickable.
+2024-07-14 18:28:37,953 - LogSetup - INFO - Waiting for login button to be clickable.
+2024-07-14 18:28:38,032 - LogSetup - INFO - Filling in login details with invalid password.
+2024-07-14 18:28:38,032 - LogSetup - INFO - Entering email: jameeltesting98@gmail.com
+2024-07-14 18:28:38,430 - LogSetup - INFO - Entering password.
+2024-07-14 18:28:38,612 - LogSetup - INFO - Clicking the login button.
+2024-07-14 18:28:38,612 - LogSetup - INFO - Clicking the login button.
+2024-07-14 18:28:38,929 - LogSetup - INFO - Checking for the error message.
+2024-07-14 18:28:38,929 - LogSetup - INFO - Waiting for error message to be visible.
+2024-07-14 18:28:40,247 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-14 18:28:59,257 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-14 18:29:03,414 - root - INFO - Chrome browser opened.
+2024-07-14 18:29:03,423 - LogSetup - INFO - Initializing page components.
+2024-07-14 18:29:03,425 - LogSetup - INFO - Clicking the sign-in button.
+2024-07-14 18:29:05,791 - LogSetup - INFO - Waiting for email input to be clickable.
+2024-07-14 18:29:06,432 - LogSetup - INFO - Waiting for password input to be clickable.
+2024-07-14 18:29:06,506 - LogSetup - INFO - Waiting for login button to be clickable.
+2024-07-14 18:29:06,586 - LogSetup - INFO - Performing login flow.
+2024-07-14 18:29:06,586 - LogSetup - INFO - Starting login flow.
+2024-07-14 18:29:06,587 - LogSetup - INFO - Entering email: jameeltesting98@gmail.com
+2024-07-14 18:29:06,937 - LogSetup - INFO - Entering password.
+2024-07-14 18:29:07,248 - LogSetup - INFO - Clicking the login button.
+2024-07-14 18:29:07,516 - LogSetup - INFO - Refreshing the page.
+2024-07-14 18:29:10,218 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-14 18:29:12,563 - LogSetup - INFO - Clicking on the searched item.
+2024-07-14 18:29:14,532 - LogSetup - INFO - Starting test_add_item_to_cart_page.
+2024-07-14 18:29:14,534 - LogSetup - INFO - Getting item details.
+2024-07-14 18:29:14,535 - LogSetup - INFO - Getting item details.
+2024-07-14 18:29:14,535 - LogSetup - INFO - Waiting for item name to be clickable.
+2024-07-14 18:29:17,622 - LogSetup - INFO - Waiting for final price to be clickable.
+2024-07-14 18:29:17,750 - LogSetup - INFO - Picking a color.
+2024-07-14 18:29:17,750 - LogSetup - INFO - Waiting for color options to be present.
+2024-07-14 18:29:17,929 - LogSetup - INFO - Picking a size.
+2024-07-14 18:29:17,929 - LogSetup - INFO - Waiting for size options to be present.
+2024-07-14 18:29:18,774 - LogSetup - INFO - Adding item to the cart list.
+2024-07-14 18:29:18,774 - LogSetup - INFO - Waiting for add to cart list button to be clickable.
+2024-07-14 18:29:19,153 - LogSetup - INFO - Clicked add to cart list button.
+2024-07-14 18:29:19,154 - LogSetup - INFO - Navigating to the cart page.
+2024-07-14 18:29:19,154 - week10.finalproject.logic.components.cart_pop_up - INFO - Clicking on the cart button
+2024-07-14 18:29:21,143 - LogSetup - INFO - Getting item details from the cart page.
+2024-07-14 18:29:21,320 - LogSetup - INFO - Asserting item details.
+2024-07-14 18:29:21,320 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-14 18:29:27,743 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-14 18:29:34,633 - root - INFO - Chrome browser opened.
+2024-07-14 18:29:34,682 - LogSetup - INFO - Initializing page components.
+2024-07-14 18:29:34,685 - LogSetup - INFO - Clicking the sign-in button.
+2024-07-14 18:29:35,015 - LogSetup - INFO - Waiting for email input to be clickable.
+2024-07-14 18:29:35,211 - LogSetup - INFO - Waiting for password input to be clickable.
+2024-07-14 18:29:35,287 - LogSetup - INFO - Waiting for login button to be clickable.
+2024-07-14 18:29:35,372 - LogSetup - INFO - Performing login flow.
+2024-07-14 18:29:35,373 - LogSetup - INFO - Starting login flow.
+2024-07-14 18:29:35,373 - LogSetup - INFO - Entering email: jameeltesting98@gmail.com
+2024-07-14 18:29:35,796 - LogSetup - INFO - Entering password.
+2024-07-14 18:29:36,022 - LogSetup - INFO - Clicking the login button.
+2024-07-14 18:29:36,268 - LogSetup - INFO - Refreshing the page.
+2024-07-14 18:29:39,046 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-14 18:29:40,360 - LogSetup - INFO - Clicking on the searched item.
+2024-07-14 18:29:42,034 - LogSetup - INFO - Starting test_add_item_to_cart_without_color.
+2024-07-14 18:29:42,035 - LogSetup - INFO - Getting item details without color.
+2024-07-14 18:29:42,035 - LogSetup - INFO - Getting item details without color.
+2024-07-14 18:29:42,035 - LogSetup - INFO - Waiting for item name to be clickable.
+2024-07-14 18:29:43,628 - LogSetup - INFO - Waiting for final price to be clickable.
+2024-07-14 18:29:43,788 - LogSetup - INFO - Removing selected color.
+2024-07-14 18:29:43,789 - LogSetup - INFO - Waiting for color options to be present.
+2024-07-14 18:29:44,239 - LogSetup - INFO - Picking a size.
+2024-07-14 18:29:44,239 - LogSetup - INFO - Waiting for size options to be present.
+2024-07-14 18:29:44,565 - LogSetup - INFO - Attempting to add item to the cart list without selecting color.
+2024-07-14 18:29:44,566 - LogSetup - INFO - Waiting for add to cart list button to be clickable.
+2024-07-14 18:29:44,779 - LogSetup - INFO - Clicked add to cart list button.
+2024-07-14 18:29:44,779 - LogSetup - INFO - Asserting color error message.
+2024-07-14 18:29:44,780 - LogSetup - INFO - Waiting for color error message to be visible.
+2024-07-14 18:29:44,945 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-14 18:29:51,435 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-14 18:29:58,430 - root - INFO - Chrome browser opened.
+2024-07-14 18:29:58,477 - LogSetup - INFO - Initializing page components.
+2024-07-14 18:29:58,478 - LogSetup - INFO - Clicking the sign-in button.
+2024-07-14 18:29:58,772 - LogSetup - INFO - Waiting for email input to be clickable.
+2024-07-14 18:29:59,444 - LogSetup - INFO - Waiting for password input to be clickable.
+2024-07-14 18:29:59,510 - LogSetup - INFO - Waiting for login button to be clickable.
+2024-07-14 18:29:59,596 - LogSetup - INFO - Performing login flow.
+2024-07-14 18:29:59,596 - LogSetup - INFO - Starting login flow.
+2024-07-14 18:29:59,597 - LogSetup - INFO - Entering email: jameeltesting98@gmail.com
+2024-07-14 18:29:59,959 - LogSetup - INFO - Entering password.
+2024-07-14 18:30:00,171 - LogSetup - INFO - Clicking the login button.
+2024-07-14 18:30:00,541 - LogSetup - INFO - Refreshing the page.
+2024-07-14 18:30:01,703 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-14 18:30:03,815 - LogSetup - INFO - Clicking on the searched item.
+2024-07-14 18:30:05,856 - LogSetup - INFO - Starting test_add_item_to_cart_without_size.
+2024-07-14 18:30:05,856 - LogSetup - INFO - Getting item details without size.
+2024-07-14 18:30:05,857 - LogSetup - INFO - Getting item details without size.
+2024-07-14 18:30:05,857 - LogSetup - INFO - Waiting for item name to be clickable.
+2024-07-14 18:30:07,376 - LogSetup - INFO - Waiting for final price to be clickable.
+2024-07-14 18:30:07,566 - LogSetup - INFO - Picking a color.
+2024-07-14 18:30:07,567 - LogSetup - INFO - Waiting for color options to be present.
+2024-07-14 18:30:07,714 - LogSetup - INFO - Removing selected size.
+2024-07-14 18:30:07,714 - LogSetup - INFO - Waiting for size options to be present.
+2024-07-14 18:30:08,487 - LogSetup - INFO - Attempting to add item to the cart list without selecting size.
+2024-07-14 18:30:08,500 - LogSetup - INFO - Waiting for add to cart list button to be clickable.
+2024-07-14 18:30:08,840 - LogSetup - INFO - Clicked add to cart list button.
+2024-07-14 18:30:08,840 - LogSetup - INFO - Asserting size error message.
+2024-07-14 18:30:08,841 - LogSetup - INFO - Waiting for size error message to be visible.
+2024-07-14 18:30:08,969 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-14 18:30:15,380 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-14 18:30:21,927 - root - INFO - Chrome browser opened.
+2024-07-14 18:30:21,933 - LogSetup - INFO - Initializing page components.
+2024-07-14 18:30:21,934 - LogSetup - INFO - Clicking the sign-in button.
+2024-07-14 18:30:22,223 - LogSetup - INFO - Waiting for email input to be clickable.
+2024-07-14 18:30:22,924 - LogSetup - INFO - Waiting for password input to be clickable.
+2024-07-14 18:30:23,004 - LogSetup - INFO - Waiting for login button to be clickable.
+2024-07-14 18:30:23,070 - LogSetup - INFO - Performing login flow.
+2024-07-14 18:30:23,070 - LogSetup - INFO - Starting login flow.
+2024-07-14 18:30:23,071 - LogSetup - INFO - Entering email: jameeltesting98@gmail.com
+2024-07-14 18:30:23,427 - LogSetup - INFO - Entering password.
+2024-07-14 18:30:23,675 - LogSetup - INFO - Clicking the login button.
+2024-07-14 18:30:23,935 - LogSetup - INFO - Refreshing the page.
+2024-07-14 18:30:26,545 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-14 18:30:27,511 - LogSetup - INFO - Clicking on the searched item.
+2024-07-14 18:30:29,073 - LogSetup - INFO - Starting test_remove_item_from_cart_page.
+2024-07-14 18:30:29,073 - LogSetup - INFO - Getting item details.
+2024-07-14 18:30:29,073 - LogSetup - INFO - Getting item details.
+2024-07-14 18:30:29,074 - LogSetup - INFO - Waiting for item name to be clickable.
+2024-07-14 18:30:30,531 - LogSetup - INFO - Waiting for final price to be clickable.
+2024-07-14 18:30:30,717 - LogSetup - INFO - Picking a color.
+2024-07-14 18:30:30,717 - LogSetup - INFO - Waiting for color options to be present.
+2024-07-14 18:30:30,958 - LogSetup - INFO - Picking a size.
+2024-07-14 18:30:30,958 - LogSetup - INFO - Waiting for size options to be present.
+2024-07-14 18:30:31,427 - LogSetup - INFO - Adding item to the cart list.
+2024-07-14 18:30:31,427 - LogSetup - INFO - Waiting for add to cart list button to be clickable.
+2024-07-14 18:30:31,792 - LogSetup - INFO - Clicked add to cart list button.
+2024-07-14 18:30:31,793 - LogSetup - INFO - Navigating to the cart page.
+2024-07-14 18:30:31,793 - week10.finalproject.logic.components.cart_pop_up - INFO - Clicking on the cart button
+2024-07-14 18:30:33,504 - LogSetup - INFO - Removing item from the cart page.
+2024-07-14 18:30:33,965 - LogSetup - INFO - Asserting the cart page is empty.
+2024-07-14 18:30:34,665 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-15 09:17:02,044 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-15 09:17:18,347 - root - INFO - Chrome browser opened.
+2024-07-15 09:17:18,461 - LogSetup - INFO - Initializing page components.
+2024-07-15 09:17:18,462 - LogSetup - INFO - Clicking the sign-in button.
+2024-07-15 09:17:19,375 - LogSetup - INFO - Waiting for email input to be clickable.
+2024-07-15 09:17:19,676 - LogSetup - INFO - Waiting for password input to be clickable.
+2024-07-15 09:17:19,992 - LogSetup - INFO - Waiting for login button to be clickable.
+2024-07-15 09:17:20,192 - LogSetup - INFO - Performing login flow.
+2024-07-15 09:17:20,193 - LogSetup - INFO - Starting login flow.
+2024-07-15 09:17:20,193 - LogSetup - INFO - Entering email: jameeltesting98@gmail.com
+2024-07-15 09:17:20,877 - LogSetup - INFO - Entering password.
+2024-07-15 09:17:21,499 - LogSetup - INFO - Clicking the login button.
+2024-07-15 09:17:21,870 - LogSetup - INFO - Refreshing the page.
+2024-07-15 09:17:26,553 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-15 09:17:28,650 - LogSetup - INFO - Clicking on the searched item.
+2024-07-15 09:17:35,611 - LogSetup - INFO - Starting test_add_item_to_cart_page.
+2024-07-15 09:17:35,611 - LogSetup - INFO - Getting item details.
+2024-07-15 09:17:35,612 - LogSetup - INFO - Getting item details.
+2024-07-15 09:17:35,613 - LogSetup - INFO - Waiting for item name to be clickable.
+2024-07-15 09:17:39,933 - LogSetup - INFO - Waiting for final price to be clickable.
+2024-07-15 09:17:40,498 - LogSetup - INFO - Picking a color.
+2024-07-15 09:17:40,499 - LogSetup - INFO - Waiting for color options to be present.
+2024-07-15 09:17:40,967 - LogSetup - INFO - Picking a size.
+2024-07-15 09:17:40,968 - LogSetup - INFO - Waiting for size options to be present.
+2024-07-15 09:17:42,602 - LogSetup - INFO - Adding item to the cart list.
+2024-07-15 09:17:42,602 - LogSetup - INFO - Waiting for add to cart list button to be clickable.
+2024-07-15 09:17:43,875 - LogSetup - INFO - Clicked add to cart list button.
+2024-07-15 09:17:43,875 - LogSetup - INFO - Navigating to the cart page.
+2024-07-15 09:17:43,877 - week10.finalproject.logic.components.cart_pop_up - INFO - Clicking on the cart button
+2024-07-15 09:17:46,797 - LogSetup - INFO - Getting item details from the cart page.
+2024-07-15 09:17:47,338 - LogSetup - INFO - Asserting item details.
+2024-07-15 09:17:47,339 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-15 09:17:56,375 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-15 09:18:06,802 - root - INFO - Chrome browser opened.
+2024-07-15 09:18:06,810 - LogSetup - INFO - Initializing page components.
+2024-07-15 09:18:06,811 - LogSetup - INFO - Clicking the sign-in button.
+2024-07-15 09:18:07,391 - LogSetup - INFO - Waiting for email input to be clickable.
+2024-07-15 09:18:07,698 - LogSetup - INFO - Waiting for password input to be clickable.
+2024-07-15 09:18:07,916 - LogSetup - INFO - Waiting for login button to be clickable.
+2024-07-15 09:18:08,069 - LogSetup - INFO - Performing login flow.
+2024-07-15 09:18:08,070 - LogSetup - INFO - Starting login flow.
+2024-07-15 09:18:08,071 - LogSetup - INFO - Entering email: jameeltesting98@gmail.com
+2024-07-15 09:18:08,590 - LogSetup - INFO - Entering password.
+2024-07-15 09:18:08,978 - LogSetup - INFO - Clicking the login button.
+2024-07-15 09:18:09,407 - LogSetup - INFO - Refreshing the page.
+2024-07-15 09:18:12,442 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-15 09:18:16,590 - LogSetup - INFO - Clicking on the searched item.
+2024-07-15 09:18:19,117 - LogSetup - INFO - Starting test_add_item_to_cart_without_color.
+2024-07-15 09:18:19,118 - LogSetup - INFO - Getting item details without color.
+2024-07-15 09:18:19,119 - LogSetup - INFO - Getting item details without color.
+2024-07-15 09:18:19,120 - LogSetup - INFO - Waiting for item name to be clickable.
+2024-07-15 09:18:22,081 - LogSetup - INFO - Waiting for final price to be clickable.
+2024-07-15 09:18:22,264 - LogSetup - INFO - Removing selected color.
+2024-07-15 09:18:22,264 - LogSetup - INFO - Waiting for color options to be present.
+2024-07-15 09:18:22,691 - LogSetup - INFO - Picking a size.
+2024-07-15 09:18:22,691 - LogSetup - INFO - Waiting for size options to be present.
+2024-07-15 09:18:23,467 - LogSetup - INFO - Attempting to add item to the cart list without selecting color.
+2024-07-15 09:18:23,468 - LogSetup - INFO - Waiting for add to cart list button to be clickable.
+2024-07-15 09:18:24,025 - LogSetup - INFO - Clicked add to cart list button.
+2024-07-15 09:18:24,027 - LogSetup - INFO - Asserting color error message.
+2024-07-15 09:18:24,027 - LogSetup - INFO - Waiting for color error message to be visible.
+2024-07-15 09:18:24,216 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-15 09:18:31,689 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-15 09:18:41,520 - root - INFO - Chrome browser opened.
+2024-07-15 09:18:41,588 - LogSetup - INFO - Initializing page components.
+2024-07-15 09:18:41,590 - LogSetup - INFO - Clicking the sign-in button.
+2024-07-15 09:18:42,084 - LogSetup - INFO - Waiting for email input to be clickable.
+2024-07-15 09:18:42,959 - LogSetup - INFO - Waiting for password input to be clickable.
+2024-07-15 09:18:43,051 - LogSetup - INFO - Waiting for login button to be clickable.
+2024-07-15 09:18:43,151 - LogSetup - INFO - Performing login flow.
+2024-07-15 09:18:43,152 - LogSetup - INFO - Starting login flow.
+2024-07-15 09:18:43,152 - LogSetup - INFO - Entering email: jameeltesting98@gmail.com
+2024-07-15 09:18:43,695 - LogSetup - INFO - Entering password.
+2024-07-15 09:18:44,237 - LogSetup - INFO - Clicking the login button.
+2024-07-15 09:18:44,749 - LogSetup - INFO - Refreshing the page.
+2024-07-15 09:18:49,804 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-15 09:18:51,730 - LogSetup - INFO - Clicking on the searched item.
+2024-07-15 09:18:54,380 - LogSetup - INFO - Starting test_add_item_to_cart_without_size.
+2024-07-15 09:18:54,381 - LogSetup - INFO - Getting item details without size.
+2024-07-15 09:18:54,381 - LogSetup - INFO - Getting item details without size.
+2024-07-15 09:18:54,381 - LogSetup - INFO - Waiting for item name to be clickable.
+2024-07-15 09:18:57,052 - LogSetup - INFO - Waiting for final price to be clickable.
+2024-07-15 09:18:57,217 - LogSetup - INFO - Picking a color.
+2024-07-15 09:18:57,218 - LogSetup - INFO - Waiting for color options to be present.
+2024-07-15 09:18:57,387 - LogSetup - INFO - Removing selected size.
+2024-07-15 09:18:57,388 - LogSetup - INFO - Waiting for size options to be present.
+2024-07-15 09:18:58,314 - LogSetup - INFO - Attempting to add item to the cart list without selecting size.
+2024-07-15 09:18:58,314 - LogSetup - INFO - Waiting for add to cart list button to be clickable.
+2024-07-15 09:18:58,821 - LogSetup - INFO - Clicked add to cart list button.
+2024-07-15 09:18:58,823 - LogSetup - INFO - Asserting size error message.
+2024-07-15 09:18:58,824 - LogSetup - INFO - Waiting for size error message to be visible.
+2024-07-15 09:18:58,969 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-15 09:19:05,912 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-15 09:19:18,702 - root - INFO - Chrome browser opened.
+2024-07-15 09:19:18,869 - LogSetup - INFO - Initializing page components.
+2024-07-15 09:19:18,870 - LogSetup - INFO - Clicking the sign-in button.
+2024-07-15 09:19:19,592 - LogSetup - INFO - Waiting for email input to be clickable.
+2024-07-15 09:19:19,955 - LogSetup - INFO - Waiting for password input to be clickable.
+2024-07-15 09:19:20,225 - LogSetup - INFO - Waiting for login button to be clickable.
+2024-07-15 09:19:20,566 - LogSetup - INFO - Performing login flow.
+2024-07-15 09:19:20,567 - LogSetup - INFO - Starting login flow.
+2024-07-15 09:19:20,567 - LogSetup - INFO - Entering email: jameeltesting98@gmail.com
+2024-07-15 09:19:21,194 - LogSetup - INFO - Entering password.
+2024-07-15 09:19:21,695 - LogSetup - INFO - Clicking the login button.
+2024-07-15 09:19:22,226 - LogSetup - INFO - Refreshing the page.
+2024-07-15 09:19:26,580 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-15 09:19:30,542 - LogSetup - INFO - Clicking on the searched item.
+2024-07-15 09:19:33,258 - LogSetup - INFO - Starting test_remove_item_from_cart_page.
+2024-07-15 09:19:33,259 - LogSetup - INFO - Getting item details.
+2024-07-15 09:19:33,259 - LogSetup - INFO - Getting item details.
+2024-07-15 09:19:33,260 - LogSetup - INFO - Waiting for item name to be clickable.
+2024-07-15 09:19:36,160 - LogSetup - INFO - Waiting for final price to be clickable.
+2024-07-15 09:19:36,430 - LogSetup - INFO - Picking a color.
+2024-07-15 09:19:36,431 - LogSetup - INFO - Waiting for color options to be present.
+2024-07-15 09:19:36,711 - LogSetup - INFO - Picking a size.
+2024-07-15 09:19:36,711 - LogSetup - INFO - Waiting for size options to be present.
+2024-07-15 09:19:37,410 - LogSetup - INFO - Adding item to the cart list.
+2024-07-15 09:19:37,410 - LogSetup - INFO - Waiting for add to cart list button to be clickable.
+2024-07-15 09:19:38,031 - LogSetup - INFO - Clicked add to cart list button.
+2024-07-15 09:19:38,032 - LogSetup - INFO - Navigating to the cart page.
+2024-07-15 09:19:38,033 - week10.finalproject.logic.components.cart_pop_up - INFO - Clicking on the cart button
+2024-07-15 09:19:40,528 - LogSetup - INFO - Removing item from the cart page.
+2024-07-15 09:19:41,265 - LogSetup - INFO - Asserting the cart page is empty.
+2024-07-15 09:19:42,480 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-15 10:56:12,485 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-15 10:56:45,238 - root - INFO - Chrome browser opened.
+2024-07-15 10:56:45,316 - LogSetup - INFO - Initializing page components.
+2024-07-15 10:56:45,318 - LogSetup - INFO - Clicking the sign-in button.
+2024-07-15 10:56:46,601 - LogSetup - INFO - Waiting for email input to be clickable.
+2024-07-15 10:56:47,737 - LogSetup - INFO - Waiting for password input to be clickable.
+2024-07-15 10:56:47,951 - LogSetup - INFO - Waiting for login button to be clickable.
+2024-07-15 10:56:48,206 - LogSetup - INFO - Performing login flow.
+2024-07-15 10:56:48,207 - LogSetup - INFO - Starting login flow.
+2024-07-15 10:56:48,207 - LogSetup - INFO - Entering email: jameeltesting98@gmail.com
+2024-07-15 10:56:48,758 - LogSetup - INFO - Entering password.
+2024-07-15 10:56:49,263 - LogSetup - INFO - Clicking the login button.
+2024-07-15 10:56:49,700 - LogSetup - INFO - Refreshing the page.
+2024-07-15 10:56:55,991 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-15 10:56:58,348 - LogSetup - INFO - Clicking on the searched item.
+2024-07-15 10:57:01,965 - LogSetup - INFO - Starting test_add_item_to_cart_page.
+2024-07-15 10:57:01,965 - LogSetup - INFO - Getting item details.
+2024-07-15 10:57:01,965 - LogSetup - INFO - Getting item details.
+2024-07-15 10:57:01,965 - LogSetup - INFO - Waiting for item name to be clickable.
+2024-07-15 10:57:05,399 - LogSetup - INFO - Waiting for final price to be clickable.
+2024-07-15 10:57:05,602 - LogSetup - INFO - Picking a color.
+2024-07-15 10:57:05,602 - LogSetup - INFO - Waiting for color options to be present.
+2024-07-15 10:57:05,872 - LogSetup - INFO - Picking a size.
+2024-07-15 10:57:05,872 - LogSetup - INFO - Waiting for size options to be present.
+2024-07-15 10:57:06,483 - LogSetup - INFO - Adding item to the cart list.
+2024-07-15 10:57:06,484 - LogSetup - INFO - Waiting for add to cart list button to be clickable.
+2024-07-15 10:57:06,932 - LogSetup - INFO - Clicked add to cart list button.
+2024-07-15 10:57:06,932 - LogSetup - INFO - Navigating to the cart page.
+2024-07-15 10:57:06,933 - week10.finalproject.logic.components.cart_pop_up - INFO - Clicking on the cart button
+2024-07-15 10:57:09,285 - LogSetup - INFO - Getting item details from the cart page.
+2024-07-15 10:57:09,810 - LogSetup - INFO - Asserting item details.
+2024-07-15 10:57:09,810 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-16 09:59:22,007 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-16 09:59:34,979 - selenium.webdriver.common.selenium_manager - WARNING - There was an error managing chromedriver (error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json)); using driver found in the cache
+2024-07-16 09:59:34,980 - selenium.webdriver.common.selenium_manager - WARNING - Error sending stats to Plausible: error sending request for url (https://plausible.io/api/event)
+2024-07-16 10:00:03,356 - root - INFO - Chrome browser opened.
+2024-07-16 10:00:03,368 - LogSetup - INFO - Initializing page components.
+2024-07-16 10:00:04,273 - LogSetup - INFO - Starting login flow.
+2024-07-16 10:00:04,273 - LogSetup - INFO - Entering email: jameeltesting98@gmail.com
+2024-07-16 10:00:04,483 - LogSetup - INFO - Entering password.
+2024-07-16 10:00:05,055 - LogSetup - INFO - Clicking the login button.
+2024-07-16 10:00:08,944 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-16 10:00:16,679 - LogSetup - INFO - Starting test_add_item_to_cart_page.
+2024-07-16 10:00:19,186 - week10.finalproject.logic.components.cart_pop_up - INFO - Clicking on the cart button
+2024-07-16 10:00:20,980 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-16 11:05:52,415 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-16 11:06:06,767 - root - INFO - Chrome browser opened.
+2024-07-16 11:06:06,813 - LogSetup - INFO - Initializing page components.
+2024-07-16 11:06:07,667 - LogSetup - INFO - Starting login flow.
+2024-07-16 11:06:07,668 - LogSetup - INFO - Entering email: jameeltesting98@gmail.com
+2024-07-16 11:06:08,143 - LogSetup - INFO - Entering password.
+2024-07-16 11:06:08,588 - LogSetup - INFO - Clicking the login button.
+2024-07-16 11:06:11,862 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-16 11:06:15,522 - LogSetup - INFO - Starting test_add_item_to_cart_page.
+2024-07-16 11:06:18,650 - week10.finalproject.logic.components.cart_pop_up - INFO - Clicking on the cart button
+2024-07-16 11:06:21,539 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-16 11:06:27,975 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-16 11:06:32,481 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-16 11:39:39,546 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-16 11:40:07,256 - root - INFO - Edge browser opened.
+2024-07-16 11:40:07,340 - LogSetup - INFO - Initializing page components.
+2024-07-16 11:40:08,005 - LogSetup - INFO - Starting login flow.
+2024-07-16 11:40:08,005 - LogSetup - INFO - Entering email: jameeltesting98@gmail.com
+2024-07-16 11:40:08,254 - LogSetup - INFO - Entering password.
+2024-07-16 11:40:08,480 - LogSetup - INFO - Clicking the login button.
+2024-07-16 11:40:11,640 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-16 11:40:13,986 - LogSetup - INFO - Starting test_add_item_to_cart_page.
+2024-07-16 11:40:16,410 - week10.finalproject.logic.components.cart_pop_up - INFO - Clicking on the cart button
+2024-07-16 11:40:18,110 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-16 11:40:24,587 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-16 11:40:29,475 - root - INFO - Edge browser opened.
+2024-07-16 11:40:29,516 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-16 13:22:08,808 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-16 13:22:20,668 - root - INFO - Chrome browser opened.
+2024-07-16 13:22:20,782 - LogSetup - INFO - Initializing page components.
+2024-07-16 13:22:21,671 - LogSetup - INFO - Starting login flow.
+2024-07-16 13:22:21,672 - LogSetup - INFO - Entering email: jameeltesting98@gmail.com
+2024-07-16 13:22:22,311 - LogSetup - INFO - Entering password.
+2024-07-16 13:22:22,674 - LogSetup - INFO - Clicking the login button.
+2024-07-16 13:22:26,903 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-16 13:22:37,160 - LogSetup - INFO - Starting test_add_item_to_cart_without_size.
+2024-07-16 13:22:42,672 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-16 13:24:22,825 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-16 13:24:32,039 - root - INFO - Chrome browser opened.
+2024-07-16 13:24:32,077 - LogSetup - INFO - Initializing page components.
+2024-07-16 13:24:33,131 - LogSetup - INFO - Starting login flow.
+2024-07-16 13:24:33,132 - LogSetup - INFO - Entering email: jameeltesting98@gmail.com
+2024-07-16 13:24:33,407 - LogSetup - INFO - Entering password.
+2024-07-16 13:24:33,642 - LogSetup - INFO - Clicking the login button.
+2024-07-16 13:24:43,729 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-16 13:24:47,960 - LogSetup - INFO - Starting test_add_item_to_cart_page.
+2024-07-16 13:24:51,824 - week10.finalproject.logic.components.cart_pop_up - INFO - Clicking on the cart button
+2024-07-16 13:24:54,054 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-16 14:17:14,893 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-16 14:17:23,327 - root - INFO - Chrome browser opened.
+2024-07-16 14:17:23,375 - LogSetup - INFO - Initializing page components.
+2024-07-16 14:17:24,355 - LogSetup - INFO - Starting login flow.
+2024-07-16 14:17:24,355 - LogSetup - INFO - Entering email: jameeltesting98@gmail.com
+2024-07-16 14:17:24,806 - LogSetup - INFO - Entering password.
+2024-07-16 14:17:25,077 - LogSetup - INFO - Clicking the login button.
+2024-07-16 14:17:26,596 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-16 14:17:30,839 - LogSetup - INFO - Starting test_add_item_to_cart_page.
+2024-07-16 14:17:34,116 - week10.finalproject.logic.components.cart_pop_up - INFO - Clicking on the cart button
+2024-07-16 14:17:36,458 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-16 14:17:43,224 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-16 14:17:51,268 - root - INFO - Chrome browser opened.
+2024-07-16 14:17:51,306 - LogSetup - INFO - Initializing page components.
+2024-07-16 14:17:52,111 - LogSetup - INFO - Starting login flow.
+2024-07-16 14:17:52,112 - LogSetup - INFO - Entering email: jameeltesting98@gmail.com
+2024-07-16 14:17:52,480 - LogSetup - INFO - Entering password.
+2024-07-16 14:17:52,773 - LogSetup - INFO - Clicking the login button.
+2024-07-16 14:17:56,437 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-16 14:17:58,973 - LogSetup - INFO - Starting test_add_item_to_cart_without_color.
+2024-07-16 14:18:02,329 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-16 14:18:04,671 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-16 14:18:14,711 - root - INFO - Chrome browser opened.
+2024-07-16 14:18:14,748 - LogSetup - INFO - Initializing page components.
+2024-07-16 14:18:16,056 - LogSetup - INFO - Starting login flow.
+2024-07-16 14:18:16,057 - LogSetup - INFO - Entering email: jameeltesting98@gmail.com
+2024-07-16 14:18:16,481 - LogSetup - INFO - Entering password.
+2024-07-16 14:18:16,686 - LogSetup - INFO - Clicking the login button.
+2024-07-16 14:18:18,518 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-16 14:18:23,349 - LogSetup - INFO - Starting test_add_item_to_cart_without_size.
+2024-07-16 14:18:26,532 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-16 14:18:29,232 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-16 14:18:36,635 - root - INFO - Chrome browser opened.
+2024-07-16 14:18:36,655 - LogSetup - INFO - Initializing page components.
+2024-07-16 14:18:37,519 - LogSetup - INFO - Starting login flow.
+2024-07-16 14:18:37,520 - LogSetup - INFO - Entering email: jameeltesting98@gmail.com
+2024-07-16 14:18:37,974 - LogSetup - INFO - Entering password.
+2024-07-16 14:18:38,321 - LogSetup - INFO - Clicking the login button.
+2024-07-16 14:18:41,928 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-16 14:18:44,817 - LogSetup - INFO - Starting test_remove_item_from_cart_page.
+2024-07-16 14:18:50,644 - week10.finalproject.logic.components.cart_pop_up - INFO - Clicking on the cart button
+2024-07-16 14:18:53,685 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-16 14:21:25,484 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-16 14:21:31,676 - root - INFO - Chrome browser opened.
+2024-07-16 14:21:32,138 - LogSetup - INFO - Initializing page components.
+2024-07-16 14:21:32,963 - LogSetup - INFO - Starting login flow.
+2024-07-16 14:21:32,964 - LogSetup - INFO - Entering email: jameeltesting98@gmail.com
+2024-07-16 14:21:33,332 - LogSetup - INFO - Entering password.
+2024-07-16 14:21:33,683 - LogSetup - INFO - Clicking the login button.
+2024-07-16 14:21:35,035 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-16 14:21:39,538 - LogSetup - INFO - Starting test_remove_item_from_cart_page.
+2024-07-16 14:21:42,269 - week10.finalproject.logic.components.cart_pop_up - INFO - Clicking on the cart button
+2024-07-16 14:21:45,039 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-16 14:22:55,022 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-16 14:23:02,494 - root - INFO - Chrome browser opened.
+2024-07-16 14:23:02,533 - LogSetup - INFO - Initializing page components.
+2024-07-16 14:23:03,831 - LogSetup - INFO - Starting login flow.
+2024-07-16 14:23:03,831 - LogSetup - INFO - Entering email: jameeltesting98@gmail.com
+2024-07-16 14:23:04,115 - LogSetup - INFO - Entering password.
+2024-07-16 14:23:04,487 - LogSetup - INFO - Clicking the login button.
+2024-07-16 14:23:05,713 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-16 14:23:09,010 - LogSetup - INFO - Starting test_remove_item_from_cart_page.
+2024-07-16 14:23:11,959 - week10.finalproject.logic.components.cart_pop_up - INFO - Clicking on the cart button
+2024-07-16 14:23:14,833 - LogSetup - INFO - Quitting the WebDriver.
+2024-07-18 16:14:31,608 - LogSetup - INFO - Initializing BrowserWrapper and WebDriver.
+2024-07-18 16:14:50,805 - root - INFO - Chrome browser opened.
+2024-07-18 16:14:50,919 - LogSetup - INFO - Initializing page components.
+2024-07-18 16:14:52,532 - LogSetup - INFO - Starting login flow.
+2024-07-18 16:14:52,533 - LogSetup - INFO - Entering email: jameeltesting98@gmail.com
+2024-07-18 16:14:53,037 - LogSetup - INFO - Entering password.
+2024-07-18 16:14:53,484 - LogSetup - INFO - Clicking the login button.
+2024-07-18 16:14:58,740 - LogSetup - INFO - Searching for item: Predator Club.
+2024-07-18 16:15:08,526 - LogSetup - INFO - Starting test_add_item_to_cart_page.
+2024-07-18 16:15:15,129 - week10.finalproject.logic.components.cart_pop_up - INFO - Clicking on the cart button
+2024-07-18 16:15:19,032 - LogSetup - INFO - Quitting the WebDriver.
