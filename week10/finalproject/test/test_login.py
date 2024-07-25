@@ -1,4 +1,7 @@
 import unittest
+
+import allure
+
 from week10.finalproject.infra.browser_wrapper import BrowserWrapper
 from week10.finalproject.infra.logger_setup import LogSetup
 from week10.finalproject.infra.utils import Utils
@@ -7,6 +10,7 @@ from week10.finalproject.logic.enums.messages import Messages
 from week10.finalproject.logic.pages.login_page import Login
 
 
+@allure.feature('Login Feature')
 class TestLogin(unittest.TestCase):
 
     def setUp(self):
@@ -34,6 +38,8 @@ class TestLogin(unittest.TestCase):
         self.logger.info("Quitting the WebDriver.")
         self.driver.quit()
 
+    @allure.story('Successful Login')
+    @allure.severity(allure.severity_level.CRITICAL)
     def test_login_successfully(self):
         """
         login successful with valid email and password
@@ -54,6 +60,8 @@ class TestLogin(unittest.TestCase):
         # Assert
         self.assertIsNotNone(self.navbar.get_avatar())
 
+    @allure.story('Unsuccessful Login')
+    @allure.severity(allure.severity_level.NORMAL)
     def test_login_unsuccessfully(self):
         """
         login unsuccessful with invalid password
