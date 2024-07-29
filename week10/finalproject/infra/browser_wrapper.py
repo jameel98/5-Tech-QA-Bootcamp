@@ -12,7 +12,6 @@ class BrowserWrapper:
         self.logger = logging.getLogger(__name__)
 
     def get_driver(self, url):
-        url = self.config.get("base_url")
         if not url:
             raise ValueError("URL not found in the configuration.")
 
